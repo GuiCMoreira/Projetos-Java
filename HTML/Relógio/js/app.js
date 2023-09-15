@@ -1,16 +1,20 @@
-let relogio = document.getElementById("relogio");
+const horas = document.getElementById("horas");
+const minutos = document.getElementById("minutos");
+const segundos = document.getElementById("segundos");
 
-function mostrahora(onde) {
-  let horaatual = new Date();
-  onde.innerHTML =
-    horaatual.getHours() +
-    ":" +
-    horaatual.getMinutes() +
-    ":" +
-    horaatual.getSeconds() +
-    ":";
-}
+const relogio = setInterval(function time() {
+  let dateToday = new Date();
+  let hr = dateToday.getHours();
+  let m = dateToday.getMinutes();
+  let s = dateToday.getSeconds();
 
-setInterval(function () {
-  mostrahora(relogio);
-}, 1000);
+  if (hr<10) hr = '0' + hr;
+  
+  if (m<10) m = '0' + m;
+  
+  if (s<10) s = '0' + s;
+
+  horas.textContent = hr;
+  minutos.textContent = m;
+  segundos.textContent = s;
+})
