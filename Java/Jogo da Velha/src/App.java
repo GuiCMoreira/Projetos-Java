@@ -1,142 +1,104 @@
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        String X = "X";
+        String O = "O";
+        String x = "x";
+        String o = "o";
+        String VAZIO = " ";
 
-        // 1 - Iniciar os vetores ou a matriz
+        String[] tabuleiro = { VAZIO, VAZIO, VAZIO,
+                VAZIO, VAZIO, VAZIO,
+                VAZIO, VAZIO, VAZIO };
 
-        int[][] tabuleiro = new int[3][3];
+        int jogada = 0;
 
-        // 2 - Pedir os nomes dos jogadores
+        boolean jogoValido = true;
+        String vencedor = null;
 
-        InserirJogadores();
+        Scanner scanner = new Scanner(System.in);
 
-        // 3 - Determinar quem iniciará a jogada
+        String jogador1 = JOptionPane.showInputDialog(null, "Escolha X ou O: ");
+        String jogador2 = VAZIO;
 
-        boolean jogador1jogar = false;
-        double opcao = Math.random();
-        if (opcao < 50.0) {
-            jogador1jogar = true;
+        if (jogador1.equals(X)) {
+            jogador1 = X;
+            jogador2 = O;
         } else {
-            jogador1jogar = false;
+            jogador1 = O;
+            jogador2 = X;
+        }
+        if (jogador1.equals(O)) {
+            jogador2 = X;
+            jogador1 = O;
+        } else {
+            jogador2 = O;
+            jogador1 = X;
         }
 
-        // 4 - Repetir as próximas etapas até ocorrer um vencedor ou empate
+        for (int i = 0; i < 9; i += 3) {
+            JOptionPane.showMessageDialog(null, i + " | " + (i + 1) + " | " + (i + 2));
+            System.out.println(i + " | " + (i + 1) + " | " + (i + 2) + "      " +
+                    tabuleiro[i] + " | " + tabuleiro[i + 1] + " | " + tabuleiro[i + 2]);
+        }
 
-        do {
+        while (jogoValido) {
+            jogada++;
+            System.out.print("Escolha onde jogar: ");
+            int casa = scanner.nextInt();
 
-            // 4.1 - Iniciar quem deve jogar
-
-            if (jogador1jogar == true) {
-                JOptionPane.showMessageDialog(null, "É a vez do " + jogador1jogar + " jogar", null, 0);
-            }
-
-            // 4.2 - Selecionar posicão
-
-            jogada();
-
-            // 4.3 - Verifiar se existe a posicao e se não está ocupada
-            // 4.4 - Marcar posicao
-            // 4.5 - Verificar se houve ganhador ou empate
-
-        } while (true);
-
-        // 5 - Indicar o jogador vencedor ou o empate
-
-        // Tabuleiro: \n\n A B C \n\n " + vt1[0] + " | " + vt1[1] + " | " + vt1[2] + "
-        // 1\n ---|-----|--- \n " + vt2[0] + " | " + vt2[1] + " | " + vt2[2] + " 2\n
-        // ---|-----|--- \n " + vt3[0] + " | " + vt3[1] + " | " + vt3[2] + " 3\n\n
-
-    }
-
-    private static void jogada() {
-        do {
-            String posicao = JOptionPane.showInputDialog(null, "Em que posição deseja jogar?");
-
-            char coluna = posicao.toUpperCase().charAt(0);
-            char linha = posicao.toUpperCase().charAt(1);
-
-            // Testa se a posição existe
-
-            if (coluna < 'A' || coluna > 'C') {
-                JOptionPane.showMessageDialog(null, "Essa coluna não existe");
-                continue;
-            }
-            if (linha < 'A' || linha > 'C') {
-                JOptionPane.showMessageDialog(null, "Essa linha não existe");
-                continue;
-            }
-            if (tabuleiro[linha - 1][coluna - 65] != ' ') {
-                JOptionPane.showMessageDialog(null, "Essa posição já está em uso");
-                continue;
-            }
-
-            // Marcar a posição:
-            if (jogador1jogar == true) {
-                tabuleiro[linha - 1][coluna - 65] = 'o';
+            if (jogada % 2 == 1) {
+                tabuleiro[casa] = jogador1;
             } else {
-                tabuleiro[linha - 1][coluna - 65] = 'x';
+                tabuleiro[casa] = jogador2;
             }
 
-            jogador1jogar = !jogador1jogar;
-            break;
-        } while (true);
-    }
+            for (int i = 0; i < 9; i += 3) {
+                System.out.println(i + " | " + (i + 1) + " | " + (i + 2) + "      " +
+                        tabuleiro[i] + " | " + tabuleiro[i + 1] + " | " + tabuleiro[i + 2]);
+            }
 
-    private static void InserirJogadores() {
+            // Verificar se o jogo acabou
+            // Horizontal
+            for (int i = 0; i < 9; i += 3) {
+                if (tabuleiro[i].equals(tabuleiro[i + 1]) && tabuleiro[i + 1].equals(tabuleiro[i + 2])
+                        && !tabuleiro[i].equals(VAZIO)) {
+                    vencedor = tabuleiro[i];
+                }
+            }
 
-        do {
-            String jogador1 = JOptionPane.showInputDialog(null, "Insira o nome do jogador 1: ");
-            if (jogador1 != "") {
-                break;
+            // Vertical
+            if (vencedor == null) {
+                for (int i = 0; i < 3; i++) {
+                    if (tabuleiro[i].equals(tabuleiro[i + 3]) && tabuleiro[i + 3].equals(tabuleiro[i + 6])
+                            && !tabuleiro[i].equals(VAZIO)) {
+                        vencedor = tabuleiro[i];
+                    }
+                }
+            }
+
+            // Diagonal
+            if (vencedor == null) {
+                for (int i = 0; i < 3; i += 2) {
+                    if (tabuleiro[i].equals(tabuleiro[4]) && tabuleiro[4].equals(tabuleiro[8 - i])
+                            && !tabuleiro[i].equals(VAZIO)) {
+                        vencedor = tabuleiro[i];
+                    }
+                }
+            }
+
+            if (vencedor != null) {
+                jogoValido = false;
+                System.out.println("Vencedor: " + vencedor);
             } else {
-                JOptionPane.showMessageDialog(null, "Por favor, insira seu nome");
+                if (!String.join("", tabuleiro).contains(VAZIO)) {
+                    jogoValido = false;
+                    System.out.println("Jogo empatou: Deu velha!");
+                }
             }
-        } while (true);
-        do {
-            String jogador2 = JOptionPane.showInputDialog(null, "Insira o nome do jogador 2: ");
-            if (jogador2 != "") {
-                break;
-            } else {
-                JOptionPane.showMessageDialog(null, "Por favor, insira seu nome");
-            }
-        } while (true);
-
-    }
-
-    private static void RestoDoCodigo() {
-
-        char[] vt1 = new char[3];
-        char[] vt2 = new char[3];
-        char[] vt3 = new char[3];
-
-        vt1[0] = 'x';
-        vt1[1] = 'x';
-        vt1[2] = 'x';
-        vt2[0] = 'x';
-        vt2[1] = 'x';
-        vt2[2] = 'x';
-        vt3[0] = 'x';
-        vt3[1] = 'x';
-        vt3[2] = 'x';
-
-        int quemComeca = Integer.parseInt(JOptionPane.showInputDialog(null, "Quem comecará o jogo? (1 ou 2)"));
-
-        String coluna = JOptionPane.showInputDialog(null,
-                "Em qual COLUNA você deseja jogar? \n\n A     B     C \n\n " + vt1[0] + "  |  " + vt1[1] + "  |  "
-                        + vt1[2] + "      1\n ---|-----|--- \n " + vt2[0] + "  |  " + vt2[1] + "  |  " + vt2[2]
-                        + "     2\n ---|-----|--- \n " + vt3[0] + "  |  " + vt3[1] + "  |  " + vt3[2] + "     3\n\n");
-        String colunaUpper = coluna.toUpperCase();
-        char colunaConvertida = colunaUpper.charAt(0);
-        int joga1coluna = colunaConvertida - 65;
-
-        String linha = JOptionPane.showInputDialog(null,
-                "Em qual LINHA você deseja jogar? \n\n A     B     C \n\n " + vt1[0] + "  |  " + vt1[1] + "  |  "
-                        + vt1[2] + "      1\n ---|-----|--- \n " + vt2[0] + "  |  " + vt2[1] + "  |  " + vt2[2]
-                        + "     2\n ---|-----|--- \n " + vt3[0] + "  |  " + vt3[1] + "  |  " + vt3[2] + "     3\n\n");
-        int joga1linha = Integer.parseInt(linha);
-
+        }
     }
 }
-
-// " + vt1[0] + "
