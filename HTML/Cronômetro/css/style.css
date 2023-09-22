@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+  font-size: 30px;
+  margin: 1px solid #000;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: #7700ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body h1 {
+  color: #fff;
+  text-align: center;
+  padding: 20px 20px;
+}
+
+.container {
+  background-color: #000000;
+  border-radius: 30px;
+  height: 580px;
+  width: 400px;
+  margin: auto;
+}
+
+.mostrador {
+  background-color: #acacac;
+  padding: 30px 30px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0px 30px;
+  border-radius: 20px;
+}
+
+.botoes {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 30px 0px;
+}
+
+input[type="button"] {
+  width: 80px;
+  height: 80px;
+  border-radius: 250px;
+  font-size: 20px;
+  background-color: #acacac;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+}
+
+input[type="button"]:hover {
+  background-color: #7700ff;
+  font-size: 22px;
+  transition: 0.2s;
+}
+
+#times {
+  color: #acacac;
+  font-size: 20px;
+  display: block;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.marcacoes {
+  color: #7700ff;
+  font-size: 20px;
+}
+
+.marcacoes span {
+  display: block;
+  font-size: 20px;
+  text-align: center;
+}
