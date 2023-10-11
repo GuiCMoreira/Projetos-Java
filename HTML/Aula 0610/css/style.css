@@ -1,0 +1,40 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Courier, monospace;
+  align-items: center;
+  text-align: center;
+  border-radius: 15px;
+  font-size: 20px;
+}
+
+div {
+  background-color: black;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 25px;
+  width: 500px;
+}
+
+table {
+  border-radius: 10px;
+  margin: 25px 50px;
+}
+
+th {
+  border: none;
+  background-color: rgb(140, 0, 255);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+td {
+  border: none;
+  background-color: rgb(140, 0, 255);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+tr {
+  border: solid 1px;
+}
