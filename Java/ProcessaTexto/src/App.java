@@ -9,11 +9,10 @@ import java.util.List;
 public class App {
     public static void main(String[] args) throws Exception {
         Path caminhoEntrada = Paths.get("src/processatexto/entrada.txt");
-        List<String> dados;
+        List<String> dados = null;
         Path localGravacao = Paths.get("src/processatexto/saida.txt");
 
 
-        List<String> dados = lerArquivo(caminhoEntrada);
         try {
             dados = lerArquivo(caminhoEntrada);
         } catch (IOException ex) {
@@ -22,11 +21,16 @@ public class App {
         }
 
         String novosDados = processarArquivo(dados);
-        gravarArquivo(localGravacao, novosDados);
+        try {
+            gravarArquivo(localGravacao, novosDados);
+        } catch (IOException ex) {
+            System.out.println("Arquivo de saída não foi gerado.");
+            System.exit(0);
+        }
     }
 
     private static void gravarArquivo(Path local, String info) throws IOException {
-        Files.writeString(local, info, StandardCharsets.UTF_8, StandardOpenOption.CREATE)
+        Files.writeString(local, info, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
     }
 
     static List<String> lerArquivo(Path arquivo) throws IOException {
@@ -34,10 +38,10 @@ public class App {
     }
 
     private static String processarArquivo(List<String> info) {
-        String invertido = "";
+        String invertido = " ";
 
         for (String linha : info) {
-            invertido = linha + invertido;
+            invertido = linha + "\n" + invertido;
         }
         
         return invertido;
