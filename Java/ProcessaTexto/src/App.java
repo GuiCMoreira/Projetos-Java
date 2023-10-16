@@ -1,7 +1,9 @@
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 public class App {
@@ -23,8 +25,8 @@ public class App {
         gravarArquivo(localGravacao, novosDados);
     }
 
-    private static void gravarArquivo(Path local, String info){
-
+    private static void gravarArquivo(Path local, String info) throws IOException {
+        Files.writeString(local, info, StandardCharsets.UTF_8, StandardOpenOption.CREATE)
     }
 
     static List<String> lerArquivo(Path arquivo) throws IOException {
