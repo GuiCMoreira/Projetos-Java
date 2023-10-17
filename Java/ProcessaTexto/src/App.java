@@ -12,7 +12,6 @@ public class App {
         List<String> dados = null;
         Path localGravacao = Paths.get("src/processatexto/saida.txt");
 
-
         try {
             dados = lerArquivo(caminhoEntrada);
         } catch (IOException ex) {
