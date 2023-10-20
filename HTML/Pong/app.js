@@ -1,11 +1,6 @@
 let velocidade = 10
 let bola = document.getElementById("bolinha")
-let coordBola = bola.getBoundingClientRect()
-let coordArea = area.getBoundingClientRect()
-let mc = 0
-let mb = 0
-let md = 0
-let me = 0
+let area = document.getElementById("area")
 let documento = document
 documento.addEventListener("keydown", (event) => teclado(event))
 documento.addEventListener("keydown", mover)
@@ -13,16 +8,27 @@ documento.addEventListener("keydown", mover)
 function teclado(tecla) {
   switch (tecla.code) {
     case "ArrowUp":
-      mc = -velocidade
+      if (bola.offsetTop - velocidade >= 0) {
+        bola.style.top = bola.offsetTop - velocidade + "px"
+      }
       break
     case "ArrowDown":
-      mb = +velocidade
+      if (
+        bola.offsetTop + bola.clientHeight + velocidade <=
+        area.clientHeight
+      ) {
+        bola.style.top = bola.offsetTop + velocidade + "px"
+      }
       break
     case "ArrowLeft":
-      me = -velocidade
+      if (bola.offsetLeft - velocidade >= 0) {
+        bola.style.left = bola.offsetLeft - velocidade + "px"
+      }
       break
     case "ArrowRight":
-      md = +velocidade
+      if (bola.offsetLeft + bola.clientWidth + velocidade <= area.clientWidth) {
+        bola.style.left = bola.offsetLeft + velocidade + "px"
+      }
       break
     case "KeyW":
       velocidade++
@@ -30,24 +36,5 @@ function teclado(tecla) {
     case "KeyS":
       velocidade--
       break
-
-    default:
-      mc = 0
-      mb = 0
-      me = 0
-      md = 0
-      break
   }
-}
-
-function mover() {
-  bola.style.top = Math.trunc(coordBola.top - coordArea.top) + (mc + mb) + "px"
-  bola.style.left =
-    Math.trunc(coordBola.left - coordArea.left) + (md + me) + "px"
-  coordBola = bola.getBoundingClientRect()
-
-  mc = 0
-  mb = 0
-  me = 0
-  md = 0
 }
