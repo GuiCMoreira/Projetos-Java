@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -9,18 +8,9 @@ public class App {
         boolean sair = false;
         while (sair == false) {
 
-            System.out.println("-----------------------------------------------------");
-            System.out.println("| Menu                                              |");
-            System.out.println("-----------------------------------------------------");
-            System.out.println("| 1 - Centímetros para polegadas                    |");
-            System.out.println("| 2 - Polegadas para centímetros                    |");
-            System.out.println("| 3 - Graus Celsius para graus Fahrenheit           |");
-            System.out.println("| 4 - Graus Fahrenheit para graus Celsius           |");
-            System.out.println("| 5 - Sair                                          |");
-            System.out.println("-----------------------------------------------------");
-            System.out.println("Escolha uma operação: ");
+            Menu();
 
-            int operacao = VerificarInteiro();
+            int operacao = VerificarInteiro("Escolha uma operação: ");
 
             switch (operacao) {
                 case 1:
@@ -46,69 +36,72 @@ public class App {
         }
     }
 
-    // Funções de verificação ---------------------------------------------
-
-    static int VerificarInteiro() {
-        int valor = 0;
-        boolean entradaValida = false;
-        do {
-            try {
-                valor = tcl.nextInt();
-                entradaValida = true;
-            } catch (InputMismatchException e) {
-                System.out.println("Operação inválida. Insira um número inteiro.");
-                tcl.nextLine();
-            }
-        } while (entradaValida == false);
-
-        return valor;
+    //Menu de opções ---------------------------------------------
+    static void Menu() {
+        System.out.println("-----------------------------------------------------");
+        System.out.println("| Menu                                              |");
+        System.out.println("-----------------------------------------------------");
+        System.out.println("| 1 - Centímetros para polegadas                    |");
+        System.out.println("| 2 - Polegadas para centímetros                    |");
+        System.out.println("| 3 - Graus Celsius para graus Fahrenheit           |");
+        System.out.println("| 4 - Graus Fahrenheit para graus Celsius           |");
+        System.out.println("| 5 - Sair                                          |");
+        System.out.println("-----------------------------------------------------");
     }
 
-    static double VerificarDouble() {
-        double valor = 0;
-        boolean entradaValida = false;
-        do {
-            try {
-                valor = tcl.nextDouble();
-                entradaValida = true;
-            } catch (InputMismatchException e) {
-                System.out.println("Operação inválida. Insira um número.");
-                tcl.nextLine();
-            }
-        } while (entradaValida == false);
+    // Funções de verificação ---------------------------------------------
 
-        return valor;
+    //Verifica se o valor inserido é um número inteiro
+    static int VerificarInteiro(String mensagem) {
+        System.out.println(mensagem);
+         while (!tcl.hasNextInt()) {
+            System.out.println("Entrada inválida. Por favor, insira um número inteiro: ");
+            tcl.next();
+         }
+
+        return tcl.nextInt();
+    }
+
+    //Verifica se o valor inserido é um número real
+    static double VerificarDouble(String mensagem) {
+        System.out.println(mensagem);
+        while (!tcl.hasNextDouble()) {
+            System.out.println("Entrada inválida. Por favor, insira um número: ");
+            tcl.next();
+        }
+
+        return tcl.nextDouble();
     }
 
     // Funções de conversão ---------------------------------------------
 
+    //Centímetros para polegadas
     static double CentPol() {
-        System.out.println("Insira o valor em centímetros: ");
-        double cent = VerificarDouble();
+        double cent = VerificarDouble("Insira o valor em centímetros:");
         double pol = cent / 2.54f;
         System.out.println("O valor em polegadas é: " + pol);
         return pol;
     }
 
+    //Polegadas para centímetros
     static double PolCent() {
-        System.out.println("Insira o valor em polegadas: ");
-        double pol = VerificarDouble();
+        double pol = VerificarDouble("Insira o valor em polegadas:");
         double cent = pol * 2.54f;
         System.out.println("O valor em centímetros é: " + cent);
         return cent;
     }
 
+    //Graus Celsius para graus Fahrenheit
     static double CelFah() {
-        System.out.println("Insira o valor em graus Celsius: ");
-        double cel = VerificarDouble();
+        double cel = VerificarDouble("Insira o valor em graus Celsius:");
         double fah = (cel * 9 / 5) + 32;
         System.out.println("O valor em graus Fahrenheit é: " + fah);
         return fah;
     }
 
+    //Graus Fahrenheit para graus Celsius
     static double FahCel() {
-        System.out.println("Insira o valor em graus Fahrenheit: ");
-        double fah = VerificarDouble();
+        double fah = VerificarDouble("Insira o valor em graus Fahrenheit:");
         double cel = (fah - 32) * 5 / 9;
         System.out.println("O valor em graus Celsius é: " + cel);
         return cel;
