@@ -1,10 +1,12 @@
-function validanome(valor) {
+//Validar Email
+function validaemail(valor) {
   let vetor = valor.split("")
-  if (vetor.length >= 2 && vetor[0].length >= 3) {
-    return true
-  } else {
-    return false
+  let tamanho = valor.length
+  let valido = false
+  for (let i = 0; i < tamanho; i++) {
+    valido = valido || vetor[i] == "@"
   }
+  return valido
 }
 
 function validasenha(valor) {

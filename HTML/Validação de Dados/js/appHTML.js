@@ -5,10 +5,10 @@ botao.addEventListener("click", validacao)
 function validacao() {
   let ok = true
 
-  if (validanome(document.getElementById("idnome").value)) {
-    alert("Nome válido")
+  if (validaemail(document.getElementById("idnome").value)) {
+    alert("Email válido")
   } else {
-    alert("Nome inválido")
+    alert("Email inválido")
   }
   if (validasenha(document.getElementById("idsenha").value)) {
     alert("Senha válida")
