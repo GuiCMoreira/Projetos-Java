@@ -7,6 +7,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         boolean sair = false;
+        
         do {
 
             System.out.println("-----------------------------------------------------");
