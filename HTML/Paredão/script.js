@@ -1,58 +1,95 @@
+const container = document.getElementById("container")
 const bar = document.getElementById("bar")
 const ball = document.getElementById("ball")
-const scoreDisplay = document.getElementById("score")
+const scoreElement = document.getElementById("score")
 
 let score = 0
-
-document.addEventListener("mousemove", (e) => {
-  const gameContainer = document.getElementById("game-container")
-  const containerWidth = gameContainer.offsetWidth
-  const barWidth = bar.offsetWidth
-  const mouseX = e.clientX - gameContainer.getBoundingClientRect().left
-
-  if (mouseX > 0 && mouseX < containerWidth - barWidth) {
-    bar.style.left = mouseX - barWidth / 2 + "px"
-  }
-})
+let ballSpeedX = 2
+let ballSpeedY = 3
+let barWidth = 80
 
 let ballX = 200
-let ballY = 50
-let ballSpeedX = 3
-let ballSpeedY = 3
+let ballY = 200
+let barX = 160
+let pointsToWin = 2 // Alteração: Dois pontos para vencer
+let wonPoints = 0
 
-function updateBallPosition() {
+function update() {
   ballX += ballSpeedX
   ballY += ballSpeedY
 
-  if (ballX <= 0 || ballX >= 380) {
+  if (ballX >= 380 || ballX <= 0) {
     ballSpeedX = -ballSpeedX
   }
 
   if (ballY <= 0) {
     ballSpeedY = -ballSpeedY
-  } else if (ballY >= 380) {
-    if (
-      ballX >= parseInt(bar.style.left) &&
-      ballX <= parseInt(bar.style.left) + bar.offsetWidth
-    ) {
+  }
+
+  if (ballY >= 370) {
+    if (ballX >= barX && ballX <= barX + barWidth) {
       ballSpeedY = -ballSpeedY
       score++
-      scoreDisplay.textContent = `Score: ${score}`
+      scoreElement.innerText = `Pontuação: ${score}`
+      increaseBallSpeed()
     } else {
-      score = 0
-      scoreDisplay.textContent = `Score: ${score}`
-      ballX = 200
-      ballY = 50
+      resetGame()
     }
   }
 
   ball.style.left = ballX + "px"
   ball.style.top = ballY + "px"
+
+  if (
+    barWidth >= container.clientWidth &&
+    ballY >= 370 &&
+    wonPoints < pointsToWin
+  ) {
+    wonPoints++
+  }
+
+  if (wonPoints === pointsToWin && ballY >= 370) {
+    score += pointsToWin
+    scoreElement.innerText = `Pontuação: ${score}`
+    winGame()
+  }
 }
 
-function updateGame() {
-  updateBallPosition()
-  requestAnimationFrame(updateGame)
+function updateBar(e) {
+  const rect = container.getBoundingClientRect()
+  barX = e.clientX - rect.left - barWidth / 2
+  if (barX < 0) {
+    barX = 0
+  }
+  if (barX > rect.width - barWidth) {
+    barX = rect.width - barWidth
+  }
+  bar.style.left = barX + "px"
 }
 
-updateGame()
+function increaseBallSpeed() {
+  ballSpeedX *= 1.1
+  ballSpeedY *= 1.1
+  barWidth *= 1.05
+  bar.style.width = barWidth + "px"
+}
+
+function resetGame() {
+  ballX = 200
+  ballY = 200
+  score = 0
+  ballSpeedX = 2
+  ballSpeedY = 3
+  barWidth = 80
+  bar.style.width = barWidth + "px"
+  scoreElement.innerText = `Pontuação: ${score}`
+  wonPoints = 0
+}
+
+function winGame() {
+  alert("Parabéns, você venceu o jogo!")
+  resetGame()
+}
+
+setInterval(update, 16)
+document.addEventListener("mousemove", updateBar)
