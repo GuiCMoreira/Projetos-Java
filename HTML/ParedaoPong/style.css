@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #111;
+}
+
+#area {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  background-color: #222;
+  border: 2px solid #fff;
+}
+
+.paddle {
+  position: absolute;
+  width: 10px;
+  height: 80px;
+  background-color: #fff;
+}
+
+#paddle1 {
+  left: 10px;
+  top: 160px;
+}
+
+#paddle2 {
+  right: 10px;
+  top: 160px;
+}
+
+#bola {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ffcc00;
+  border-radius: 50%;
+}
+
