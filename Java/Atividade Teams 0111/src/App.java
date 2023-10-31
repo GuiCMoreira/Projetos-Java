@@ -36,7 +36,7 @@ public class App {
         }
     }
 
-    //Menu de opções ---------------------------------------------
+    // Menu de opções ---------------------------------------------
     static void Menu() {
         System.out.println("-----------------------------------------------------");
         System.out.println("| Menu                                              |");
@@ -51,31 +51,45 @@ public class App {
 
     // Funções de verificação ---------------------------------------------
 
-    //Verifica se o valor inserido é um número inteiro
+    // Verifica se o valor inserido é um número inteiro
     static int VerificarInteiro(String mensagem) {
-        System.out.println(mensagem);
-         while (!tcl.hasNextInt()) {
-            System.out.println("Entrada inválida. Por favor, insira um número inteiro: ");
-            tcl.next();
-         }
-
-        return tcl.nextInt();
+        Boolean erro = false;
+        int aux = 0;
+        String valor;
+        while (erro == false) {
+            System.out.println(mensagem);
+            valor = tcl.nextLine();
+            try {
+                aux = Integer.parseInt(valor);
+                erro = true;
+            } catch (Exception e) {
+                System.out.println("Insira uma operação válida");
+            }
+        }
+        return aux;
     }
 
-    //Verifica se o valor inserido é um número real
+    // Verifica se o valor inserido é um número double
     static double VerificarDouble(String mensagem) {
-        System.out.println(mensagem);
-        while (!tcl.hasNextDouble()) {
-            System.out.println("Entrada inválida. Por favor, insira um número: ");
-            tcl.next();
+        Boolean erro = false;
+        double aux = 0;
+        String valor;
+        while (erro == false) {
+            System.out.println(mensagem);
+            valor = tcl.nextLine();
+            try {
+                aux = Double.parseDouble(valor);
+                erro = true;
+            } catch (Exception e) {
+                System.out.println("Insira uma operação válida");
+            }
         }
-
-        return tcl.nextDouble();
+        return aux;
     }
 
     // Funções de conversão ---------------------------------------------
 
-    //Centímetros para polegadas
+    // Centímetros para polegadas
     static double CentPol() {
         double cent = VerificarDouble("Insira o valor em centímetros:");
         double pol = cent / 2.54f;
@@ -83,7 +97,7 @@ public class App {
         return pol;
     }
 
-    //Polegadas para centímetros
+    // Polegadas para centímetros
     static double PolCent() {
         double pol = VerificarDouble("Insira o valor em polegadas:");
         double cent = pol * 2.54f;
@@ -91,7 +105,7 @@ public class App {
         return cent;
     }
 
-    //Graus Celsius para graus Fahrenheit
+    // Graus Celsius para graus Fahrenheit
     static double CelFah() {
         double cel = VerificarDouble("Insira o valor em graus Celsius:");
         double fah = (cel * 9 / 5) + 32;
@@ -99,7 +113,7 @@ public class App {
         return fah;
     }
 
-    //Graus Fahrenheit para graus Celsius
+    // Graus Fahrenheit para graus Celsius
     static double FahCel() {
         double fah = VerificarDouble("Insira o valor em graus Fahrenheit:");
         double cel = (fah - 32) * 5 / 9;
