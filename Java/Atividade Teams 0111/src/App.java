@@ -1,7 +1,8 @@
-import java.util.Scanner;
+import digitacao.EntradaTeclado;
 
 public class App {
-    static Scanner tcl = new Scanner(System.in);
+
+    static EntradaTeclado tcl = new EntradaTeclado();
 
     public static void main(String[] args) throws Exception {
 
@@ -10,7 +11,7 @@ public class App {
 
             Menu();
 
-            int operacao = VerificarInteiro("Escolha uma operação: ");
+            int operacao = tcl.validarinteiro("Escolha uma operação: ", "Insira uma operação válida!", true);
 
             switch (operacao) {
                 case 1:
@@ -36,10 +37,12 @@ public class App {
         }
     }
 
-    // Menu de opções ---------------------------------------------
+    // Menu de opções
+    // ---------------------------------------------------------------
+
     static void Menu() {
         System.out.println("-----------------------------------------------------");
-        System.out.println("| Menu                                              |");
+        System.out.println("|                      Menu                         |");
         System.out.println("-----------------------------------------------------");
         System.out.println("| 1 - Centímetros para polegadas                    |");
         System.out.println("| 2 - Polegadas para centímetros                    |");
@@ -49,49 +52,12 @@ public class App {
         System.out.println("-----------------------------------------------------");
     }
 
-    // Funções de verificação ---------------------------------------------
-
-    // Verifica se o valor inserido é um número inteiro
-    static int VerificarInteiro(String mensagem) {
-        Boolean erro = false;
-        int aux = 0;
-        String valor;
-        while (erro == false) {
-            System.out.println(mensagem);
-            valor = tcl.nextLine();
-            try {
-                aux = Integer.parseInt(valor);
-                erro = true;
-            } catch (Exception e) {
-                System.out.println("Insira uma operação válida");
-            }
-        }
-        return aux;
-    }
-
-    // Verifica se o valor inserido é um número double
-    static double VerificarDouble(String mensagem) {
-        Boolean erro = false;
-        double aux = 0;
-        String valor;
-        while (erro == false) {
-            System.out.println(mensagem);
-            valor = tcl.nextLine();
-            try {
-                aux = Double.parseDouble(valor);
-                erro = true;
-            } catch (Exception e) {
-                System.out.println("Insira uma operação válida");
-            }
-        }
-        return aux;
-    }
-
-    // Funções de conversão ---------------------------------------------
+    // Funções de conversão
+    // ---------------------------------------------------------
 
     // Centímetros para polegadas
     static double CentPol() {
-        double cent = VerificarDouble("Insira o valor em centímetros:");
+        double cent = tcl.validardouble("Insira o valor em centímetros:", "Insira um número real!", true);
         double pol = cent / 2.54f;
         System.out.println("O valor em polegadas é: " + pol);
         return pol;
@@ -99,7 +65,7 @@ public class App {
 
     // Polegadas para centímetros
     static double PolCent() {
-        double pol = VerificarDouble("Insira o valor em polegadas:");
+        double pol = tcl.validardouble("Insira o valor em polegadas:", "Insira um número real!", true);
         double cent = pol * 2.54f;
         System.out.println("O valor em centímetros é: " + cent);
         return cent;
@@ -107,7 +73,7 @@ public class App {
 
     // Graus Celsius para graus Fahrenheit
     static double CelFah() {
-        double cel = VerificarDouble("Insira o valor em graus Celsius:");
+        double cel = tcl.validardouble("Insira o valor em graus Celsius:", "Insira um número real!", true);
         double fah = (cel * 9 / 5) + 32;
         System.out.println("O valor em graus Fahrenheit é: " + fah);
         return fah;
@@ -115,7 +81,7 @@ public class App {
 
     // Graus Fahrenheit para graus Celsius
     static double FahCel() {
-        double fah = VerificarDouble("Insira o valor em graus Fahrenheit:");
+        double fah = tcl.validardouble("Insira o valor em graus Fahrenheit:", "Insira um número real!", true);
         double cel = (fah - 32) * 5 / 9;
         System.out.println("O valor em graus Celsius é: " + cel);
         return cel;
