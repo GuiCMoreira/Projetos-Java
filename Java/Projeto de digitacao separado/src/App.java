@@ -5,21 +5,11 @@ public class App {
 
         EntradaTeclado tcl = new EntradaTeclado();
 
-        String nome = tcl.texto("Digite seu nome: ");
-        double altura = 0.0d;
-        int idade = tcl.inteiro("Digite sua idade: ", "Erro, digite um valor numérico", true);
+        String nome = tcl.validarstring("Digite seu nome: ");
 
-        boolean erro = false;
+        int idade = tcl.validarinteiro("Digite sua idade: ", "Erro, digite um número inteiro", true);
 
-        do {
-            try {
-                altura = tcl.decimal("Digite sua altura em metros");
-                erro = false;
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-                erro = true;
-                altura = 0.0d;
-            }
-        } while (erro == true);
+        double altura = tcl.validardouble("Digite sua altura em metros: ", "Erro, digite um valor numérico", true);
+
     }
 }
