@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  text-align: center;
+}
+
+#game-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 2px solid #000;
+  margin-top: 20px; /* Espaço entre o jogo e a pontuação */
+  display: inline-block;
+  position: relative;
+  border-radius: 25px;
+}
+
+#bar {
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+  height: 10px;
+  background-color: #000;
+}
+
+#ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+#score {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 20px;
+  background-color: #afafaf;
+  border-radius: 25px;
+}

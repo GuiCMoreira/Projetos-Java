@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body>
-    <div id="game-container">
-      <div id="ball"></div>
-      <div id="paddle"></div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogo da Bolinha</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="game-container">
+            <div id="bar"></div>
+            <div id="ball"></div>
+        </div>
+        <div id="score">Score: 0</div>
     </div>
-    <div id="score">Pontuação: <span id="score-value">0</span></div>
-    <button id="start-button">Iniciar</button>
-    <!-- Botão para iniciar/reiniciar o jogo -->
-    <script src="game.js"></script>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
