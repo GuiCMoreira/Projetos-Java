@@ -1,30 +1,54 @@
 import java.util.Scanner;
 
 public class App {
-    static Scanner input = new Scanner(System.in);
-
     public static void main(String[] args) throws Exception {
-        String cpf = validarcpf("Digite seu CPF (somente os números): ");
-    }
+        Scanner input = new Scanner(System.in);
+        String cpf = "";
 
-    // Validar CPF
-    static String validarcpf(String msg) {
-        String cpf;
-        do {
-            System.out.println(msg);
+        while (!validarCPF(cpf)) {
+            System.out.print("Digite o CPF (somente números): ");
             cpf = input.nextLine();
-            if (cpf.length() != 11) {
-                System.out.println("CPF inválido, digite novamente!");
-            }
-        } while (cpf.length() != 11);
 
-        String vet1[] = cpf.split("");
-        boolean cpfValido = false;
-        for (int i = 0; i < vet1.length - 1; i++) {
-            int vet2[] = integer.parseInt(vet1[i]);
-            
+            if (validarCPF(cpf)) {
+                System.out.println("CPF válido!");
+            } else {
+                System.out.println("CPF inválido!");
+            }
         }
-        return cpf;
     }
 
+    public static boolean validarCPF(String cpf) {
+        // Remove caracteres não numéricos
+        cpf = cpf.replaceAll("[^\\d]", "");
+
+        // Verifica se o CPF possui 11 dígitos
+        if (cpf.length() != 11) {
+            return false;
+        }
+
+        // Verifica se todos os dígitos são iguais
+        if (cpf.matches("(\\d)\\1{10}")) {
+            return false;
+        }
+
+        // Calcula o primeiro dígito verificador
+        int soma = 0;
+        for (int i = 0; i < 9; i++) {
+            soma += Character.getNumericValue(cpf.charAt(i)) * (10 - i);
+        }
+        int resto = 11 - (soma % 11);
+        int digito1 = (resto >= 10) ? 0 : resto;
+
+        // Calcula o segundo dígito verificador
+        soma = 0;
+        for (int i = 0; i < 10; i++) {
+            soma += Character.getNumericValue(cpf.charAt(i)) * (11 - i);
+        }
+        resto = 11 - (soma % 11);
+        int digito2 = (resto >= 10) ? 0 : resto;
+
+        // Verifica se os dígitos verificadores estão corretos
+        return (digito1 == Character.getNumericValue(cpf.charAt(9)))
+                && (digito2 == Character.getNumericValue(cpf.charAt(10)));
+    }
 }
