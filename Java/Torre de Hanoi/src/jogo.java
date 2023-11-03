@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class gpt {
+public class jogo {
 
     public static void main(String[] args) {
         int numDiscos = 3;
