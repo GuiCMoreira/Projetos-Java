@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -15,7 +16,7 @@ public class App {
         fim = teclado.nextLine();
 
         // aqui, o vetor cotacoes recebe o vetor de strings retornado pelo metodo
-        String[] cotacoes = ServicoCotacaoBC.porperiodo(inicio, fim); // metodo
+        List<Cotacao> cotacoes = ServicoCotacaoBC.porperiodo(inicio, fim); // metodo
     }
 
 }
