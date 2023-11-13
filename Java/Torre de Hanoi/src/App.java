@@ -12,33 +12,25 @@ public class App {
 
     public static void main(String[] args) throws Exception {
 
-        boolean jogoGanho = false;
-        boolean movimentovalido = false;
-        imprimirinicio();
-        do {
-            int movimento = tcl.inteiro("Você deseja mover o disco de cima de qual torre?",
-                    "Não é possível mover este disco! Escolha um válido", true);
-            if (movimento < 1 && movimento > 3) {
-                movimentovalido = true;
-            } else {
-                System.out.println("Não é possível mover este disco! Escolha um válido");
-                movimento = 0;
-            }
-        } while (movimentovalido);
+        pino1[0] = disco1;
+        pino1[1] = disco2;
+        pino1[2] = disco3;
+        pino2[0] = "";
+        pino2[1] = "";
+        pino2[2] = "";
+        pino3[0] = "";
+        pino3[1] = "";
+        pino3[2] = "";
 
+        do {
+
+            imprimirJogo();
+            movimento();
+
+        } while (!verificarJogoGanho());
     }
 
-    static void imprimirinicio() {
-
-        pino1[0] = disco1;
-        pino2[0] = "  |  ";
-        pino3[0] = "  |  ";
-        pino1[1] = disco2;
-        pino2[1] = "  |  ";
-        pino3[1] = "  |  ";
-        pino1[2] = disco3;
-        pino2[2] = "  |  ";
-        pino3[2] = "  |  ";
+    static void imprimirJogo() {
 
         System.out.println(pino1[0] + " " + pino2[0] + " " + pino3[0]);
         System.out.println(pino1[1] + " " + pino2[1] + " " + pino3[1]);
@@ -46,19 +38,37 @@ public class App {
 
     }
 
-    static void moverpino1() {
+    static void movimento() {
+        boolean movimentoValido = false;
+        do {
+            int movimento = tcl.inteiro("Você deseja mover o disco de cima de qual torre?",
+                    "Digite um número inteiro!", true);
+            if (movimento == 1 || movimento == 2 || movimento == 3) {
+                movimentoValido = true;
+            } else {
+                System.out.println("Essa torre não existe! Escolha uma torre válida");
+            }
+        } while (!movimentoValido);
 
+        boolean movimentoValido2 = false;
+        do {
+            int movimento2 = tcl.inteiro("Você deseja mover o disco para cima de qual torre?",
+                    "Digite um número inteiro!", true);
+            if (movimento2 == 1 || movimento2 == 2 || movimento2 == 3) {
+                movimentoValido2 = true;
+            } else {
+                System.out.println("Essa torre não existe! Escolha uma torre válida");
+            }
+        } while (!movimentoValido2);
     }
 
-    static void moverpino2() {
-
+    static boolean verificarJogoGanho() {
+        if (pino3[0] == disco1 && pino3[1] == disco2 && pino3[2] == disco3) {
+            System.out.println("Parabéns! Você completou a Torre de Hanói!");
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    static void moverpino3() {
-
-    }
-
-    static void verificarjogoganho() {
-
-    }
 }
