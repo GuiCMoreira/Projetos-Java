@@ -39,5 +39,15 @@ body {
 #score {
     text-align: center;
     font-size: 18px;
+    margin: 10px;
+    border: solid 2px black;
+    padding: 5px;
+    border-radius: 25px;
+}
+
+#regra {
+    text-align: center;
+    font-size: 18px;
     margin-top: 20px;
+    font-size: 15px;
 }
