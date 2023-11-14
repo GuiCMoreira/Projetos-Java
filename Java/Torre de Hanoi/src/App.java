@@ -29,7 +29,6 @@ public class App {
         do {
 
             movimento();
-            verificarMovimento();
             imprimirJogo();
 
         } while (!verificarJogoGanho());
@@ -160,10 +159,6 @@ public class App {
                 break;
         }
 
-    }
-
-    static void verificarMovimento(){
-        
     }
 
     static boolean verificarJogoGanho() {
