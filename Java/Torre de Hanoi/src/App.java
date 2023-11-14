@@ -30,6 +30,7 @@ public class App {
             imprimirJogo();
 
         } while (!verificarJogoGanho());
+
     }
 
     static void imprimirJogo() {
@@ -43,6 +44,7 @@ public class App {
     }
 
     static void movimento() {
+
         boolean movimentoValido = false;
         int origem = 0;
         int destino = 0;
@@ -154,9 +156,11 @@ public class App {
                 }
                 break;
         }
+
     }
 
     static boolean verificarJogoGanho() {
+
         if (pino3[0] == disco3 && pino3[1] == disco2 && pino3[2] == disco1) {
             System.out.println("+--------------------------------------------+");
             System.out.println("| Parabéns! Você completou a Torre de Hanói! |");
@@ -165,6 +169,7 @@ public class App {
         } else {
             return false;
         }
+
     }
 
 }
