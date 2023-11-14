@@ -3,9 +3,9 @@ import digitacao.EntradaTeclado;
 public class App {
 
     static EntradaTeclado tcl = new EntradaTeclado();
-    static String disco1 = "  ***  ";
-    static String disco2 = " ***** ";
-    static String disco3 = "*******";
+    static String disco1 = "  **  ";
+    static String disco2 = " **** ";
+    static String disco3 = "******";
     static String[] pino1 = new String[3];
     static String[] pino2 = new String[3];
     static String[] pino3 = new String[3];
@@ -15,17 +15,19 @@ public class App {
         pino1[0] = disco3;
         pino1[1] = disco2;
         pino1[2] = disco1;
-        pino2[0] = "       ";
-        pino2[1] = "       ";
-        pino2[2] = "       ";
-        pino3[0] = "       ";
-        pino3[1] = "       ";
-        pino3[2] = "       ";
+        pino2[0] = "      ";
+        pino2[1] = "      ";
+        pino2[2] = "      ";
+        pino3[0] = "      ";
+        pino3[1] = "      ";
+        pino3[2] = "      ";
+
+        imprimirJogo();
 
         do {
 
-            imprimirJogo();
             movimento();
+            imprimirJogo();
 
         } while (!verificarJogoGanho());
     }
@@ -65,48 +67,48 @@ public class App {
             }
         } while (!movimentoValido);
 
-        String disco = "       ";
+        String disco = "      ";
         switch (origem) {
             case 1:
-                if (pino1[2] != "       ") {
+                if (pino1[2] != "      ") {
                     disco = pino1[2];
-                    pino1[2] = "       ";
-                } else if (pino1[1] != "       ") {
+                    pino1[2] = "      ";
+                } else if (pino1[1] != "      ") {
                     disco = pino1[1];
-                    pino1[1] = "       ";
-                } else if (pino1[0] != "       ") {
+                    pino1[1] = "      ";
+                } else if (pino1[0] != "      ") {
                     disco = pino1[0];
-                    pino1[0] = "       ";
+                    pino1[0] = "      ";
                 } else {
                     System.out.println("Essa torre está vazia! Escolha uma torre com discos");
                     return;
                 }
                 break;
             case 2:
-                if (pino2[2] != "") {
+                if (pino2[2] != "      ") {
                     disco = pino2[2];
-                    pino2[2] = "";
-                } else if (pino2[1] != "") {
+                    pino2[2] = "      ";
+                } else if (pino2[1] != "      ") {
                     disco = pino2[1];
-                    pino2[1] = "";
-                } else if (pino2[0] != "") {
+                    pino2[1] = "      ";
+                } else if (pino2[0] != "      ") {
                     disco = pino2[0];
-                    pino2[0] = "";
+                    pino2[0] = "      ";
                 } else {
                     System.out.println("Essa torre está vazia! Escolha uma torre com discos");
                     return;
                 }
                 break;
             case 3:
-                if (pino3[2] != "       ") {
+                if (pino3[2] != "      ") {
                     disco = pino3[2];
-                    pino3[2] = "       ";
-                } else if (pino3[1] != "       ") {
+                    pino3[2] = "      ";
+                } else if (pino3[1] != "      ") {
                     disco = pino3[1];
-                    pino3[1] = "       ";
-                } else if (pino3[0] != "       ") {
+                    pino3[1] = "      ";
+                } else if (pino3[0] != "      ") {
                     disco = pino3[0];
-                    pino3[0] = "       ";
+                    pino3[0] = "      ";
                 } else {
                     System.out.println("Essa torre está vazia! Escolha uma torre com discos");
                     return;
@@ -116,11 +118,11 @@ public class App {
 
         switch (destino) {
             case 1:
-                if (pino1[0] == "       ") {
+                if (pino1[0] == "      ") {
                     pino1[0] = disco;
-                } else if (pino1[1] == "       ") {
+                } else if (pino1[1] == "      ") {
                     pino1[1] = disco;
-                } else if (pino1[2] == "       ") {
+                } else if (pino1[2] == "      ") {
                     pino1[2] = disco;
                 } else {
                     System.out.println("Essa torre está cheia! Escolha uma torre vazia");
@@ -128,11 +130,11 @@ public class App {
                 }
                 break;
             case 2:
-                if (pino2[0] == "       ") {
+                if (pino2[0] == "      ") {
                     pino2[0] = disco;
-                } else if (pino2[1] == "       ") {
+                } else if (pino2[1] == "      ") {
                     pino2[1] = disco;
-                } else if (pino2[2] == "       ") {
+                } else if (pino2[2] == "      ") {
                     pino2[2] = disco;
                 } else {
                     System.out.println("Essa torre está cheia! Escolha uma torre vazia");
@@ -140,11 +142,11 @@ public class App {
                 }
                 break;
             case 3:
-                if (pino3[0] == "       ") {
+                if (pino3[0] == "      ") {
                     pino3[0] = disco;
-                } else if (pino3[1] == "       ") {
+                } else if (pino3[1] == "      ") {
                     pino3[1] = disco;
-                } else if (pino3[2] == "       ") {
+                } else if (pino3[2] == "      ") {
                     pino3[2] = disco;
                 } else {
                     System.out.println("Essa torre está cheia! Escolha uma torre vazia");
@@ -155,8 +157,10 @@ public class App {
     }
 
     static boolean verificarJogoGanho() {
-        if (pino3[0] == disco1 && pino3[1] == disco2 && pino3[2] == disco3) {
-            System.out.println("Parabéns! Você completou a Torre de Hanói!");
+        if (pino3[0] == disco3 && pino3[1] == disco2 && pino3[2] == disco1) {
+            System.out.println("+--------------------------------------------+");
+            System.out.println("| Parabéns! Você completou a Torre de Hanói! |");
+            System.out.println("+--------------------------------------------+");
             return true;
         } else {
             return false;
