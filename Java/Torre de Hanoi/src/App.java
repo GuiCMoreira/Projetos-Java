@@ -12,21 +12,24 @@ public class App {
 
     public static void main(String[] args) throws Exception {
 
-        pino1[0] = disco3;
-        pino1[1] = disco2;
         pino1[2] = disco1;
-        pino2[0] = "      ";
-        pino2[1] = "      ";
+        pino1[1] = disco2;
+        pino1[0] = disco3;
+
         pino2[2] = "      ";
-        pino3[0] = "      ";
-        pino3[1] = "      ";
+        pino2[1] = "      ";
+        pino2[0] = "      ";
+
         pino3[2] = "      ";
+        pino3[1] = "      ";
+        pino3[0] = "      ";
 
         imprimirJogo();
 
         do {
 
             movimento();
+            verificarMovimento();
             imprimirJogo();
 
         } while (!verificarJogoGanho());
@@ -157,6 +160,10 @@ public class App {
                 break;
         }
 
+    }
+
+    static void verificarMovimento(){
+        
     }
 
     static boolean verificarJogoGanho() {
