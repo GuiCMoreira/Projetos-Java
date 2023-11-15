@@ -42,7 +42,7 @@ public class App {
         } while (!verificarJogoGanho());
 
     }
- 
+
     static void imprimirJogo() {
 
         System.out.println("+-------------------------------------------------+");
@@ -160,9 +160,6 @@ public class App {
                     pino1[3] = disco;
                 } else if (pino1[4] == "     |     ") {
                     pino1[4] = disco;
-                } else {
-                    System.out.println("Essa torre está cheia! Escolha uma torre vazia");
-                    return;
                 }
                 break;
             case 2:
@@ -176,9 +173,6 @@ public class App {
                     pino2[3] = disco;
                 } else if (pino2[4] == "     |     ") {
                     pino2[4] = disco;
-                } else {
-                    System.out.println("Essa torre está cheia! Escolha uma torre vazia");
-                    return;
                 }
                 break;
             case 3:
@@ -192,9 +186,6 @@ public class App {
                     pino3[3] = disco;
                 } else if (pino3[4] == "     |     ") {
                     pino3[4] = disco;
-                } else {
-                    System.out.println("Essa torre está cheia! Escolha uma torre vazia");
-                    return;
                 }
                 break;
         }
