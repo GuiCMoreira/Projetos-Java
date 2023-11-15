@@ -45,13 +45,13 @@ public class App {
  
     static void imprimirJogo() {
 
-        System.out.println("+---------------------------------+");
-        System.out.println("|" + pino1[4] + pino2[4] + pino3[4] + "|");
-        System.out.println("|" + pino1[3] + pino2[3] + pino3[3] + "|");
-        System.out.println("|" + pino1[2] + pino2[2] + pino3[2] + "|");
-        System.out.println("|" + pino1[1] + pino2[1] + pino3[1] + "|");
-        System.out.println("|" + pino1[0] + pino2[0] + pino3[0] + "|");
-        System.out.println("+---------------------------------+");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("|        " + pino1[4] + pino2[4] + pino3[4] + "        |");
+        System.out.println("|        " + pino1[3] + pino2[3] + pino3[3] + "        |");
+        System.out.println("|        " + pino1[2] + pino2[2] + pino3[2] + "        |");
+        System.out.println("|        " + pino1[1] + pino2[1] + pino3[1] + "        |");
+        System.out.println("|        " + pino1[0] + pino2[0] + pino3[0] + "        |");
+        System.out.println("+-------------------------------------------------+");
 
     }
 
@@ -205,9 +205,8 @@ public class App {
 
         if (pino3[0] == disco5 && pino3[1] == disco4 && pino3[2] == disco3 && pino3[3] == disco2
                 && pino3[4] == disco1) {
-            System.out.println("+--------------------------------------------+");
-            System.out.println("| Parabéns! Você completou a Torre de Hanói! |");
-            System.out.println("+--------------------------------------------+");
+            System.out.println("|    Parabéns! Você completou a Torre de Hanói!   |");
+            System.out.println("+-------------------------------------------------+");
             return true;
         } else {
             return false;
