@@ -1,9 +1,10 @@
 import digitacao.EntradaTeclado;
 
 public class App {
-    EntradaTeclado tcl = new EntradaTeclado();
+    static EntradaTeclado tcl = new EntradaTeclado();
 
     static char[] vetor = new char[5];
+    static char[] vetor2 = { '1', '2', '3', '4', '5' };
 
     public static void main(String[] args) throws Exception {
 

@@ -3,7 +3,7 @@ package digitacao;
 import java.util.Scanner;
 
 public class EntradaTeclado {
-  Scanner tcl = new Scanner(System.in);
+  static Scanner tcl = new Scanner(System.in);
 
   public String texto(String mensagem) {
 
