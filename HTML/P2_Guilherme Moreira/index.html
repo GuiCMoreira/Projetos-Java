@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <form id="formulario">
+      <h1>Formulário</h1>
+      <div id="campos">
+        <div>
+          <label for="">
+            <input
+              type="text"
+              name="nome"
+              id="nome"
+              placeholder="Insira seu nome"
+            />
+          </label>
+        </div>
+        <div>
+          <label for="">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Insira seu email"
+            />
+          </label>
+        </div>
+
+        <div>
+          <label for="">
+            <input
+              type="tel"
+              name="telefone"
+              id="telefone"
+              placeholder="Insira seu telefone"
+            />
+          </label>
+        </div>
+
+
+        <div>
+          <label for="">
+            <input
+              type="number"
+              name="numero"
+              id="numero"
+              placeholder="Insira seu número da sorte"
+            />
+          </label>
+        </div>
+
+        <div class="button-container">
+          <button onclick="validarFormulario()">Adicionar</button>
+        </div>
+      </div>
+
+      <div>
+        <legend>Dados</legend>
+        <table id="tabela" border="1px">
+          <thead>
+              <th>Nome</th>
+              <th>Telefone</th>
+              <th>Email</th>
+              <th>Número da Sorte</th>
+          </thead>
+          <tbody id="corpo"></tbody>
+        </table>
+      </div>
+    </form>
+
+    <script src="js/app.js"></script>
+    <script src="js/LocalStorage/armazenamento.js"></script>
+    <script src="js/exibeDados.js"></script>
+    <script src="js/LocalStorage/pesquisaDados.js"></script>
+  </body>
+</html>
