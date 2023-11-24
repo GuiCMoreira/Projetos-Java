@@ -1,5 +1,5 @@
 function exibirDados() {
-  let pessoas = JSON.parse(localStorage.getItem('meusContatos')) || [];
+  let pessoas = JSON.parse(localStorage.getItem('dadosPessoa')) || [];
 
   let tabela = document.getElementById('tabela');
 

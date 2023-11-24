@@ -21,13 +21,13 @@ function armazenarValores() {
     numero: numero,
   };
 
-  let pessoas = JSON.parse(localStorage.getItem('meusContatos'));
+  let pessoas = JSON.parse(localStorage.getItem('dadosPessoa'));
   if (!pessoas || !Array.isArray(pessoas)) {
     pessoas = [];
   }
 
   pessoas.push(novaPessoa);
-  localStorage.setItem('meusContatos', JSON.stringify(pessoas));
+  localStorage.setItem('dadosPessoa', JSON.stringify(pessoas));
   exibirDados();
 }
 
