@@ -30,11 +30,3 @@ function armazenarValores() {
   exibirDados();
 }
 
-function ler(chave, tipoArmazenamento) {
-  let valor = tipoArmazenamento.getItem(chave);
-  if (valor) {
-    return JSON.parse(valor);
-  } else {
-    return null;
-  }
-}

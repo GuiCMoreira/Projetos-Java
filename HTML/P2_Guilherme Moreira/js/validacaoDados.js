@@ -1,3 +1,10 @@
+let botaoAdicionar = document.getElementById('botaoEnviar');
+
+botaoAdicionar.addEventListener('click', function () {
+  limparErro();
+  validarFormulario();
+});
+
 function validarFormulario() {
   let nome = document.getElementById('nome').value;
   let email = document.getElementById('email').value;
@@ -5,34 +12,37 @@ function validarFormulario() {
   let numero = document.getElementById('numero').value;
 
   if (!verificarNome(nome)) {
-    alert(
+    exibirErro(
       'Nome inválido. Certifique-se de que tem pelo menos 3 caracteres e um espaço em branco.',
     );
+    document.getElementById('nome').value = '';
     return;
   }
 
   if (!verificarEmail(email)) {
-    alert(
+    exibirErro(
       "Email inválido. Certifique-se de incluir '@' e '.' em posições corretas.",
     );
+    document.getElementById('email').value = '';
     return;
   }
   if (!verificarTelefone(telefone)) {
-    alert('Telefone inválido. Preencha o campo corretamente.');
+    exibirErro('Telefone inválido. Preencha o campo corretamente.');
+    document.getElementById('telefone').value = '';
     return;
   }
 
   if (!verificarNumeroDaSorte(numero)) {
-    alert('Número da sorte inválido. Insira um número maior ou igual a zero.');
+    exibirErro(
+      'Número da sorte inválido. Insira um número maior ou igual a zero.',
+    );
+    document.getElementById('numero').value = '';
     return;
   }
 
+  limparErro();
   armazenarValores();
 }
-
-document
-  .getElementById('botaoEnviar')
-  .addEventListener('click', validarFormulario);
 
 function verificarNome(nome) {
   if (nome.length >= 3 && nome.includes(' ')) {
@@ -63,5 +73,22 @@ function verificarNumeroDaSorte(numero) {
     return true;
   } else {
     return false;
+  }
+}
+
+function exibirErro(mensagem) {
+  let erroParagrafo = document.createElement('p');
+  erroParagrafo.style.color = 'red';
+
+  erroParagrafo.innerHTML = mensagem;
+
+  let campos = document.getElementById('campos');
+  campos.insertBefore(erroParagrafo, campos.firstChild);
+}
+
+function limparErro() {
+  let campos = document.getElementById('campos');
+  if (campos.firstChild.tagName === 'P') {
+    campos.removeChild(campos.firstChild);
   }
 }
