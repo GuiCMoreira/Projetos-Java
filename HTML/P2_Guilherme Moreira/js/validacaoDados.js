@@ -42,6 +42,7 @@ function validarFormulario() {
 
   limparErro();
   armazenarValores();
+  limparCampos();
 }
 
 function verificarNome(nome) {
@@ -91,4 +92,11 @@ function limparErro() {
   if (campos.firstChild.tagName === 'P') {
     campos.removeChild(campos.firstChild);
   }
+}
+
+function limparCampos() {
+  document.getElementById('nome').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('telefone').value = '';
+  document.getElementById('numero').value = '';
 }
