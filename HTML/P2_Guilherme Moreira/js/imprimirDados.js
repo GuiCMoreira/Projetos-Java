@@ -15,7 +15,6 @@ function exibirDados() {
     `;
   tabela.innerHTML = cabecalho;
 
-  //cria nova linhas cada vez que novos dados sao adicionados
   for (let i = 0; i < pessoas.length; i++) {
     let linha = document.createElement('tr');
 
@@ -38,11 +37,10 @@ function exibirDados() {
     tabela.appendChild(linha);
   }
 }
-//exibe a tabela no navegador
+
 let body = document.getElementById('tabela');
 body.innerHTML += window.localStorage.getItem('tabela');
 
-// mantem a exibição a tabela após o carregamento da pagina
 window.onload = function () {
   exibirDados();
 };

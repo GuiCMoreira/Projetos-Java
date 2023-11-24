@@ -1,4 +1,3 @@
-// armazena conteudo no navegador
 function armazenarDados(chave, valor, tipoArmazenamento) {
   let valorConvertidor = JSON.stringify(valor);
   if (tipoArmazenamento) {
@@ -7,7 +6,7 @@ function armazenarDados(chave, valor, tipoArmazenamento) {
     alert('Navegador não suporta armazenamento local');
   }
 }
-// armazena valores do input
+
 function armazenarValores() {
   let nome = document.getElementById('nome').value;
   let telefone = document.getElementById('telefone').value;

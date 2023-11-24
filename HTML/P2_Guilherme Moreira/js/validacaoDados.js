@@ -1,11 +1,9 @@
-// Função chamada ao clicar no botão de envio do formulário
 function validarFormulario() {
   let nome = document.getElementById('nome').value;
   let email = document.getElementById('email').value;
   let telefone = document.getElementById('telefone').value;
   let numero = document.getElementById('numero').value;
 
-  // Realiza as verificações
   if (!verificarNome(nome)) {
     alert(
       'Nome inválido. Certifique-se de que tem pelo menos 3 caracteres e um espaço em branco.',
@@ -29,11 +27,9 @@ function validarFormulario() {
     return;
   }
 
-  // Se todas as verificações passarem, armazena os dados
   armazenarValores();
 }
 
-// Adicione um listener para chamar validarFormulario() no clique do botão de envio
 document
   .getElementById('botaoEnviar')
   .addEventListener('click', validarFormulario);
