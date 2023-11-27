@@ -13,7 +13,7 @@ public class EntradaTeclado {
     return dado;
   }
 
-  public int inteiro(String mensagem, String msgErro, boolean repetir) {
+  public int numeroInteiro(String mensagem, String msgErro, boolean repetir) {
 
     int dado = 0;
     boolean erro = false;
@@ -32,7 +32,7 @@ public class EntradaTeclado {
     return dado;
   }
 
-  public double decimal(String mensagem, String msgErro, boolean repetir) {
+  public double numeroDecimal(String mensagem, String msgErro, boolean repetir) {
 
     double dado = 0;
     boolean erro = false;
