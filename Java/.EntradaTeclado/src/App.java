@@ -7,9 +7,12 @@ public class App {
 
         String nome = tcl.texto("Digite seu nome: ");
 
-        int idade = tcl.inteiro("Digite sua idade: ", "Erro, digite um número inteiro", true);
+        int idade = tcl.numeroInteiro("Digite sua idade: ", "Erro, digite um número inteiro", true);
 
-        double altura = tcl.decimal("Digite sua altura em metros: ", "Erro, digite um valor numérico", true);
+        double altura = tcl.numeroDecimal("Digite sua altura em metros: ", "Erro, digite um valor numérico", true);
+
+        float tamanhoPe = tcl.numeroFloat("Digite o tamanho do seu pé em centímetros: ",
+                "Erro, digite um valor numérico", true);
 
     }
 }
