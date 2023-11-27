@@ -2,10 +2,10 @@ import digitacao.EntradaTeclado;
 
 public class App {
     
-    static EntradaTeclado tcl = new EntradaTeclado();
+    public static EntradaTeclado tcl = new EntradaTeclado();
 
-    static float[][] mt1 = new float[3][4];
-    static float[][] mt2 = new float[3][4];
+    public static float[][] mt1 = new float[3][4];
+    public static float[][] mt2 = new float[3][4];
 
     public static void main(String[] args) throws Exception {
         iniciarMatrizes();
