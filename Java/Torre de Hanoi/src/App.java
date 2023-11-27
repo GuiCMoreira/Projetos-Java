@@ -61,7 +61,7 @@ public class App {
         int origem = 0;
         int destino = 0;
         do {
-            origem = tcl.inteiro("Você deseja mover o disco de cima de qual torre?",
+            origem = tcl.numeroInteiro("Você deseja mover o disco de cima de qual torre?",
                     "Digite um número inteiro!", true);
             if (origem == 1 || origem == 2 || origem == 3) {
                 movimentoValido = true;
@@ -72,7 +72,7 @@ public class App {
 
         movimentoValido = false;
         do {
-            destino = tcl.inteiro("Você deseja mover o disco para cima de qual torre?",
+            destino = tcl.numeroInteiro("Você deseja mover o disco para cima de qual torre?",
                     "Digite um número inteiro!", true);
             if (destino == 1 || destino == 2 || destino == 3) {
                 movimentoValido = true;

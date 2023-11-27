@@ -1,4 +1,4 @@
-import digitacao.entradateclado;
+import digitacao.EntradaTeclado;
 
 public class App {
 
@@ -7,7 +7,7 @@ public class App {
     private static double[] medias = new double[2];
 
     public static void main(String[] args) throws Exception {
-        entradateclado tcl = new entradateclado();
+        EntradaTeclado tcl = new EntradaTeclado();
 
         for (int a = 0; a < alunos.length; a++) {
 
@@ -15,18 +15,7 @@ public class App {
 
             for (int i = 0; i < notas[a].length; i++) {
 
-                double nota = 0;
-                boolean erro = false;
-
-                do {
-                    try {
-                        nota = tcl.decimal("Digite a nota " + (i + 1) + " do aluno: ");
-                        erro = false;
-                    } catch (Exception e) {
-                        erro = true;
-                        System.out.println("Digite um valor numérico");
-                    }
-                } while (erro == true);
+                double nota = tcl.numeroDecimal("Digite a nota " + (i + 1) + " do aluno: ", "Digite um valor numérico", true);
 
                 notas[a][i] = nota;
 

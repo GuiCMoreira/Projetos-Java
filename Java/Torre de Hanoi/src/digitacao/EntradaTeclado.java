@@ -13,7 +13,7 @@ public class EntradaTeclado {
     return dado;
   }
 
-  public int inteiro(String mensagem, String msgErro, boolean repetir) {
+  public int numeroInteiro(String mensagem, String msgErro, boolean repetir) {
 
     int dado = 0;
     boolean erro = false;
@@ -32,7 +32,7 @@ public class EntradaTeclado {
     return dado;
   }
 
-  public double decimal(String mensagem, String msgErro, boolean repetir) {
+  public double numeroDecimal(String mensagem, String msgErro, boolean repetir) {
 
     double dado = 0;
     boolean erro = false;
@@ -42,6 +42,26 @@ public class EntradaTeclado {
       aux = aux.replaceAll(",", ".");
       try {
         dado = Double.parseDouble(aux);
+        erro = false;
+      } catch (RuntimeException e) {
+        System.out.println(msgErro);
+        erro = repetir;
+      }
+    } while (erro == true);
+
+    return dado;
+  }
+
+  public float numeroFloat(String mensagem, String msgErro, boolean repetir) {
+
+    float dado = 0;
+    boolean erro = false;
+
+    do {
+      String aux = texto(mensagem);
+      aux = aux.replaceAll(",", ".");
+      try {
+        dado = Float.parseFloat(aux);
         erro = false;
       } catch (RuntimeException e) {
         System.out.println(msgErro);
