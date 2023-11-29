@@ -11,6 +11,8 @@ public class App {
     static String[] pino1 = new String[5];
     static String[] pino2 = new String[5];
     static String[] pino3 = new String[5];
+    static int origem = 0;
+    static int destino = 0;
 
     public static void main(String[] args) throws Exception {
 
@@ -36,7 +38,12 @@ public class App {
 
         do {
 
-            movimento();
+            do {
+                escolherMovimento();
+                verificarMovimentoValido();
+            } while (!verificarMovimentoValido());
+
+            movimentando();
             imprimirJogo();
 
         } while (!verificarJogoGanho());
@@ -55,11 +62,12 @@ public class App {
 
     }
 
-    static void movimento() {
+    static void escolherMovimento() {
 
         boolean movimentoValido = false;
         int origem = 0;
         int destino = 0;
+
         do {
             origem = tcl.numeroInteiro("Você deseja mover o disco de cima de qual torre?",
                     "Digite um número inteiro!", true);
@@ -80,6 +88,21 @@ public class App {
                 System.out.println("Essa torre não existe! Escolha uma torre válida");
             }
         } while (!movimentoValido);
+
+    }
+
+    static boolean verificarMovimentoValido(int origem, int destino) {
+
+        if (origem > destino) {
+            System.out.println("Você não pode mover um disco maior para cima de um disco menor!");
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    static void movimentando() {
 
         String disco = "     |     ";
         switch (origem) {
