@@ -1,7 +1,8 @@
-import java.util.Scanner;
+import digitacao.EntradaTeclado;
 
 public class App {
-    static Scanner tcl = new Scanner(System.in);
+
+    static EntradaTeclado tcl = new EntradaTeclado();
 
     public static void main(String[] args) throws Exception {
 
@@ -9,41 +10,58 @@ public class App {
 
         while (repeat) {
 
-            System.out.println("+-------------------------------+");
-            System.out.println("| O que você deseja consultar?  |");
-            System.out.println("+-------------------------------+");
-            System.out.println("| 1 - Meses do ano              |");
-            System.out.println("| 2 - Placas e Modelos          |");
-            System.out.println("| 3 - Sair                      |");
-            System.out.println("+-------------------------------+");
-            int op = tcl.nextInt();
+            menu();
+
+            int op = tcl.numeroInteiro("Escolha uma opção: ", "Insira um número inteiro!", true);
 
             switch (op) {
                 case 1:
-                    System.out.println("+-------------------------------+");
+                    System.out.println("");
+                    System.out.println("Meses do ano: ");
+                    System.out.println("");
                     meses();
+                    System.out.println("");
                     break;
                 case 2:
-                    System.out.println("+-------------------------------+");
+                    System.out.println("");
+                    System.out.println("Veículos: ");
+                    System.out.println("");
                     placas();
                     break;
                 case 3:
-                    System.out.println("+-------------------------------+");
+                    System.out.println("");
+                    System.out.println("Saindo...");
+                    System.out.println("");
                     repeat = false;
+                    break;
                 default:
+                    System.out.println("Insira uma opção válida: ");
                     break;
             }
         }
 
     }
 
+    public static void menu() {
+
+        System.out.println("+-------------------------------+");
+        System.out.println("| O que você deseja consultar?  |");
+        System.out.println("+-------------------------------+");
+        System.out.println("| 1 - Meses do ano              |");
+        System.out.println("| 2 - Placas e Modelos          |");
+        System.out.println("| 3 - Sair                      |");
+        System.out.println("+-------------------------------+");
+
+    }
+
     public static void meses() {
 
-        String meses[] = { "JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO", "JULHO", "AGOSTO", "SETEMBRO",
-                "OUTUBRO", "NOVEMBRO", "DEZEMBRO" };
+        String meses[] = { "Janeiro", "Fevereiro", "Março", "Abril", "Maio",
+                "Junho", "Julho", "Agosto", "Setembro",
+                "Outubro", "Novembro", "Dezembro" };
 
-        for (String string : meses) {
-            System.out.println(string);
+        for (String Meses : meses) {
+            System.out.println(Meses);
         }
 
     }
