@@ -29,7 +29,7 @@ public class ListaRegras {
 
   private static void reordenar(String vetor2[]) {
 
-    for (byte pos = (byte) vetor2.length; pos > 0; pos--) {
+    for (byte pos = (byte) (vetor2.length - 1); pos > 0; pos--) {
 
       if (vetor2[pos - 1] == null || Integer.parseInt(vetor2[pos]) > Integer.parseInt(vetor2[pos - 1])) {
 

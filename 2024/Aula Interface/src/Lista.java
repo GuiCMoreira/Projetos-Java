@@ -10,13 +10,13 @@ public class Lista {
             System.out.println(valor);
         }
 
-        ListaRegras.inserir("2000", ranking);
+        ListaRegras.inserir("1000", ranking);
 
         for (String valor : ranking) {
             System.out.println(valor);
         }
 
-        ListaRegras.inserir("1000", ranking);
+        ListaRegras.inserir("2000", ranking);
 
         for (String valor : ranking) {
             System.out.println(valor);
