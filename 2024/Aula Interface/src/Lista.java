@@ -3,9 +3,9 @@ public class Lista {
 
     public static void main(String[] args) throws Exception {
         
-        ListaRegras.inserir(null, args);
-        ListaRegras.excluir(null, args);
-        ListaRegras.consulta(null, args);
+        ListaRegras.inserir("Abacaxi", ranking);
+        ListaRegras.excluir("Abacaxi", ranking);
+        ListaRegras.consulta("Abacaxi", ranking);
 
     }
 }
