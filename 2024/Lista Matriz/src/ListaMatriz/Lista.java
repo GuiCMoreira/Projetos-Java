@@ -1,4 +1,4 @@
-package ListaMatriz;
+package listamatriz;
 public class Lista {
 
   static final int colNome = 0;
