@@ -3,7 +3,7 @@ package listamatriz;
 public class Lista {
 
   static final int colNome = 0;
-  static int colQuantidade = 0;
+  static int colQuantidade = 1;
 
   public static boolean estaCheia(String[][] matriz) {
     int vazios = 0;
@@ -35,7 +35,9 @@ public class Lista {
     if (!estaVazia(matriz)) {
       for (int linha = 0; linha < matriz.length; linha++) {
         if (Integer.parseInt(matriz[linha][colQuantidade]) == lugares) {
-          String[] aux = matriz[linha];
+          String[] aux = new String[2];
+          aux[colNome] = matriz[linha][colNome];
+          aux[colQuantidade] = matriz[linha][colQuantidade];
           matriz[linha][colNome] = null;
           return aux;
         }
