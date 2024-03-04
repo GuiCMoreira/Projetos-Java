@@ -6,17 +6,23 @@ public class Lista {
   static int colQuantidade = 1;
 
   public static boolean estaCheia(String[][] matriz) {
-    int vazios = 0;
+    int ocupado = 0;
     for (int linha = 0; linha < matriz.length; linha++) {
-      if (matriz[linha][colNome] == null) {
-        vazios++;
+      if (matriz[linha][colNome] != null) {
+        ocupado++;
       }
     }
-    return vazios == 0 ? true : false;
+    return ocupado == matriz.length ? true : false;
   }
 
   public static boolean estaVazia(String[][] matriz) {
-    return true;
+    int ocupado = 0;
+    for (int linha = 0; linha < matriz.length; linha++) {
+      if (matriz[linha][colNome] != null) {
+        ocupado++;
+      }
+    }
+    return ocupado == 0 ? true : false;
   }
 
   public static void inserir(String nome, int quantidade, String[][] matriz) {
@@ -34,7 +40,8 @@ public class Lista {
   public static String[] chamar(int lugares, String[][] matriz) {
     if (!estaVazia(matriz)) {
       for (int linha = 0; linha < matriz.length; linha++) {
-        if (Integer.parseInt(matriz[linha][colQuantidade]) == lugares) {
+        if (Integer.parseInt(matriz[linha][colQuantidade]) == lugares &&
+            matriz[linha][colNome] != null) {
           String[] aux = new String[2];
           aux[colNome] = matriz[linha][colNome];
           aux[colQuantidade] = matriz[linha][colQuantidade];
