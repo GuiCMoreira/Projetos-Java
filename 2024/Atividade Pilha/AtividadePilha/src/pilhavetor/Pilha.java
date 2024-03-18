@@ -1,7 +1,7 @@
 package pilhavetor;
 
 public class Pilha {
-    static String[] pilha = new String[5];
+    static char[] pilha = new char[150];
     static int top = -1;
     
     public static boolean estaCheia(){
@@ -11,7 +11,7 @@ public class Pilha {
     public static boolean estaVazia(){
         return top == -1;
     }
-    public static void empilhar(String valor){
+    public static void empilhar(char valor){
         if (!estaCheia()){
             // top++;
             // pilha[top] = valor;
@@ -22,13 +22,13 @@ public class Pilha {
         }
     }
     
-    public static String desempilha(){
-        String retorno = "";
+    public static char desempilha(){
+        char retorno = '\0';
         if (!estaVazia()){
             retorno = pilha[top];
             //pilha[top] = null;
             //top--;
-            pilha[top--] = null;
+            pilha[top--] = '\0';
         }
         else{
             throw new RuntimeException("Pilha vazia.");
@@ -37,7 +37,7 @@ public class Pilha {
         
     }
     
-    public static String consultaTop(){
+    public static char consultaTop(){
         if (!estaVazia()){
             return pilha[top];
         }
@@ -46,10 +46,10 @@ public class Pilha {
         }
     }
     
-    public static String avaliar(){
-        String aux = "";
-        for (String valor : pilha) {
-            aux += valor + " -> ";
+    public static char avaliar(){
+        char aux = '\0';
+        for (char valor : pilha) {
+            aux += valor;
         }
         return aux;
     }
