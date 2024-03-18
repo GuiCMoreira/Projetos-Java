@@ -13,10 +13,12 @@ public class PilhaVetor {
             Pilha.empilhar(vetor[i]);
         }
 
-        System.out.println(Pilha.avaliar());
-
-        System.out.println("Desempilhando -> " + Pilha.desempilha());
-
-        System.out.println(Pilha.avaliar());
+        try {
+            while (true) {
+                System.out.println("Desempilhando -> " + Pilha.desempilha());
+            }
+        } catch (Exception e) {
+        
+        }
     }
 }

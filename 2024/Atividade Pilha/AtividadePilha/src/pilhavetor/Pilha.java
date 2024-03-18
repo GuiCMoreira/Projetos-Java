@@ -13,9 +13,8 @@ public class Pilha {
     }
     public static void empilhar(char valor){
         if (!estaCheia()){
-            // top++;
-            // pilha[top] = valor;
-            pilha[++top] = valor;
+            top++;
+            pilha[top] = valor;
         }
         else{
             throw new RuntimeException("Pilha Cheia.");
@@ -23,17 +22,16 @@ public class Pilha {
     }
     
     public static char desempilha(){
-        char retorno = '\0';
+        char letra = '\0';
         if (!estaVazia()){
-            retorno = pilha[top];
-            //pilha[top] = null;
-            //top--;
-            pilha[top--] = '\0';
+            letra = pilha[top];
+            pilha[top] = '\0';
+            top--;
         }
         else{
             throw new RuntimeException("Pilha vazia.");
         }
-        return retorno;
+        return letra;
         
     }
     
