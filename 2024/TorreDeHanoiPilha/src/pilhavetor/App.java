@@ -29,12 +29,12 @@ public class App {
     }
 
     static void imprimirJogo() {
-        System.out.println("Torre 1: " + PilhaA.pilha[0] + " " + PilhaA.pilha[1] + " " + PilhaA.pilha[2] + " "
-                + PilhaA.pilha[3] + " " + PilhaA.pilha[4]);
-        System.out.println("Torre 2: " + PilhaB.pilha[0] + " " + PilhaB.pilha[1] + " " + PilhaB.pilha[2] + " "
-                + PilhaB.pilha[3] + " " + PilhaB.pilha[4]);
-        System.out.println("Torre 3: " + PilhaC.pilha[0] + " " + PilhaC.pilha[1] + " " + PilhaC.pilha[2] + " "
-                + PilhaC.pilha[3] + " " + PilhaC.pilha[4]);
+        System.out.println("\nTorre 1: Torre 2: Torre 3:");
+        System.out.println("   " + PilhaA.pilha[4] + "        " + PilhaB.pilha[4] + "        " + PilhaC.pilha[4]);
+        System.out.println("   " + PilhaA.pilha[3] + "        " + PilhaB.pilha[3] + "        " + PilhaC.pilha[3]);
+        System.out.println("   " + PilhaA.pilha[2] + "        " + PilhaB.pilha[2] + "        " + PilhaC.pilha[2]);
+        System.out.println("   " + PilhaA.pilha[1] + "        " + PilhaB.pilha[1] + "        " + PilhaC.pilha[1]);
+        System.out.println("   " + PilhaA.pilha[0] + "        " + PilhaB.pilha[0] + "        " + PilhaC.pilha[0] + "\n");
 
     }
 
