@@ -12,20 +12,20 @@ public class App {
     static final int disco5 = 5;
 
     public static void main(String[] args) {
-        Torre1.empilhar(disco5);
-        Torre1.empilhar(disco4);
-        Torre1.empilhar(disco3);
-        Torre1.empilhar(disco2);
-        Torre1.empilhar(disco1);
+        Torre_1.empilhar(disco5);
+        Torre_1.empilhar(disco4);
+        Torre_1.empilhar(disco3);
+        Torre_1.empilhar(disco2);
+        Torre_1.empilhar(disco1);
 
-        ImprimirJogo.imprimirJogo();
+        Imprimir_e_Verificar.imprimirJogo();
 
         do {
 
             Movimento.movimento();
-            ImprimirJogo.imprimirJogo();
+            Imprimir_e_Verificar.imprimirJogo();
 
-        } while (!VerificarJogoGanho.verificarJogoGanho());
+        } while (!Imprimir_e_Verificar.verificarJogoGanho());
     }
-    
+
 }

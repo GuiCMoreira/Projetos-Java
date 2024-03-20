@@ -1,6 +1,6 @@
 package hanoi;
 
-public class Torre3 {
+public class Torre_2 {
 
     static int[] torre = new int[5];
     static int top = -1;
@@ -45,7 +45,7 @@ public class Torre3 {
         }
     }
     
-    public static int avaliar() {
+    public static int avaliar(){
         int aux = 0;
         for (int valor : torre) {
             aux += valor;

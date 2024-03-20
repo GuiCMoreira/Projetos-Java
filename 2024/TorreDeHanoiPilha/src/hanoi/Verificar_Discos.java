@@ -1,6 +1,6 @@
 package hanoi;
 
-public class VerificarDiscos {
+public class Verificar_Discos {
 
   static boolean verificarDiscos(int origem, int destino) {
     int discoTorreOrigem = 0;
@@ -10,11 +10,11 @@ public class VerificarDiscos {
       case 1:
         switch (destino) {
           case 1:
-            if (Torre1.estaVazia()) {
+            if (Torre_1.estaVazia()) {
               return true;
             } else {
-              discoTorreOrigem = Torre1.consultaTop();
-              discoTorreDestino = Torre1.consultaTop();
+              discoTorreOrigem = Torre_1.consultaTop();
+              discoTorreDestino = Torre_1.consultaTop();
 
               if (discoTorreOrigem > discoTorreDestino) {
                 return false;
@@ -24,11 +24,11 @@ public class VerificarDiscos {
             }
 
           case 2:
-            if (Torre2.estaVazia()) {
+            if (Torre_2.estaVazia()) {
               return true;
             } else {
-              discoTorreOrigem = Torre1.consultaTop();
-              discoTorreDestino = Torre2.consultaTop();
+              discoTorreOrigem = Torre_1.consultaTop();
+              discoTorreDestino = Torre_2.consultaTop();
 
               if (discoTorreOrigem > discoTorreDestino) {
                 return false;
@@ -38,11 +38,11 @@ public class VerificarDiscos {
             }
 
           case 3:
-            if (Torre3.estaVazia()) {
+            if (Torre_3.estaVazia()) {
               return true;
             } else {
-              discoTorreOrigem = Torre1.consultaTop();
-              discoTorreDestino = Torre3.consultaTop();
+              discoTorreOrigem = Torre_1.consultaTop();
+              discoTorreDestino = Torre_3.consultaTop();
 
               if (discoTorreOrigem > discoTorreDestino) {
                 return false;
@@ -56,11 +56,11 @@ public class VerificarDiscos {
       case 2:
         switch (destino) {
           case 1:
-            if (Torre1.estaVazia()) {
+            if (Torre_1.estaVazia()) {
               return true;
             } else {
-              discoTorreOrigem = Torre2.consultaTop();
-              discoTorreDestino = Torre1.consultaTop();
+              discoTorreOrigem = Torre_2.consultaTop();
+              discoTorreDestino = Torre_1.consultaTop();
 
               if (discoTorreOrigem > discoTorreDestino) {
                 return false;
@@ -70,11 +70,11 @@ public class VerificarDiscos {
             }
 
           case 2:
-            if (Torre2.estaVazia()) {
+            if (Torre_2.estaVazia()) {
               return true;
             } else {
-              discoTorreOrigem = Torre2.consultaTop();
-              discoTorreDestino = Torre2.consultaTop();
+              discoTorreOrigem = Torre_2.consultaTop();
+              discoTorreDestino = Torre_2.consultaTop();
 
               if (discoTorreOrigem > discoTorreDestino) {
                 return false;
@@ -84,11 +84,11 @@ public class VerificarDiscos {
             }
 
           case 3:
-            if (Torre3.estaVazia()) {
+            if (Torre_3.estaVazia()) {
               return true;
             } else {
-              discoTorreOrigem = Torre2.consultaTop();
-              discoTorreDestino = Torre3.consultaTop();
+              discoTorreOrigem = Torre_2.consultaTop();
+              discoTorreDestino = Torre_3.consultaTop();
 
               if (discoTorreOrigem > discoTorreDestino) {
                 return false;
@@ -102,11 +102,11 @@ public class VerificarDiscos {
       case 3:
         switch (destino) {
           case 1:
-            if (Torre1.estaVazia()) {
+            if (Torre_1.estaVazia()) {
               return true;
             } else {
-              discoTorreOrigem = Torre3.consultaTop();
-              discoTorreDestino = Torre1.consultaTop();
+              discoTorreOrigem = Torre_3.consultaTop();
+              discoTorreDestino = Torre_1.consultaTop();
 
               if (discoTorreOrigem > discoTorreDestino) {
                 return false;
@@ -116,11 +116,11 @@ public class VerificarDiscos {
             }
 
           case 2:
-            if (Torre2.estaVazia()) {
+            if (Torre_2.estaVazia()) {
               return true;
             } else {
-              discoTorreOrigem = Torre3.consultaTop();
-              discoTorreDestino = Torre2.consultaTop();
+              discoTorreOrigem = Torre_3.consultaTop();
+              discoTorreDestino = Torre_2.consultaTop();
 
               if (discoTorreOrigem > discoTorreDestino) {
                 return false;
@@ -130,11 +130,11 @@ public class VerificarDiscos {
             }
 
           case 3:
-            if (Torre3.estaVazia()) {
+            if (Torre_3.estaVazia()) {
               return true;
             } else {
-              discoTorreOrigem = Torre3.consultaTop();
-              discoTorreDestino = Torre3.consultaTop();
+              discoTorreOrigem = Torre_3.consultaTop();
+              discoTorreDestino = Torre_3.consultaTop();
 
               if (discoTorreOrigem > discoTorreDestino) {
                 return false;

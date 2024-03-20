@@ -1,6 +1,6 @@
 package hanoi;
 
-public class Torre1 {
+public class Torre_1 {
 
     static int[] torre = new int[5];
     static int top = -1;
