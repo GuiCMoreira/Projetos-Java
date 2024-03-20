@@ -1,4 +1,5 @@
 package pilhavetor;
+
 import digitacao.EntradaTeclado;
 
 public class App {
@@ -34,7 +35,8 @@ public class App {
         System.out.println("   " + PilhaA.pilha[3] + "        " + PilhaB.pilha[3] + "        " + PilhaC.pilha[3]);
         System.out.println("   " + PilhaA.pilha[2] + "        " + PilhaB.pilha[2] + "        " + PilhaC.pilha[2]);
         System.out.println("   " + PilhaA.pilha[1] + "        " + PilhaB.pilha[1] + "        " + PilhaC.pilha[1]);
-        System.out.println("   " + PilhaA.pilha[0] + "        " + PilhaB.pilha[0] + "        " + PilhaC.pilha[0] + "\n");
+        System.out
+                .println("   " + PilhaA.pilha[0] + "        " + PilhaB.pilha[0] + "        " + PilhaC.pilha[0] + "\n");
 
     }
 
@@ -66,53 +68,74 @@ public class App {
 
         switch (origem) {
             case 1:
-                int discoTorre1 = PilhaA.desempilha();
-                switch (destino) {
-                    case 1:
-                        PilhaA.empilhar(discoTorre1);
-                        break;
-                    case 2:
-                        PilhaB.empilhar(discoTorre1);
-                        break;
-                    case 3:
-                        PilhaC.empilhar(discoTorre1);
-                        break;
+                if (PilhaA.estaVazia()) {
+                    System.out.println("Torre de origem vazia, escolha outra.");
+                    break;
+                } else {
+                    int discoTorre1 = PilhaA.desempilha();
+                    switch (destino) {
+                        case 1:
+                            PilhaA.empilhar(discoTorre1);
+                            break;
+                        case 2:
+                            PilhaB.empilhar(discoTorre1);
+                            break;
+                        case 3:
+                            PilhaC.empilhar(discoTorre1);
+                            break;
+                    }
+                    break;
                 }
-                break;
             case 2:
-                int discoTorre2 = PilhaB.desempilha();
-                switch (destino) {
-                    case 1:
-                        PilhaA.empilhar(discoTorre2);
-                        break;
-                    case 2:
-                        PilhaB.empilhar(discoTorre2);
-                        break;
-                    case 3:
-                        PilhaC.empilhar(discoTorre2);
-                        break;
+                if (PilhaB.estaVazia()) {
+                    System.out.println("Torre de origem vazia, escolha outra.");
+                    break;
+                } else {
+                    int discoTorre2 = PilhaB.desempilha();
+                    switch (destino) {
+                        case 1:
+                            PilhaA.empilhar(discoTorre2);
+                            break;
+                        case 2:
+                            PilhaB.empilhar(discoTorre2);
+                            break;
+                        case 3:
+                            PilhaC.empilhar(discoTorre2);
+                            break;
+                    }
+                    break;
                 }
-                break;
             case 3:
-                int discoTorre3 = PilhaC.desempilha();
-                switch (destino) {
-                    case 1:
-                        PilhaA.empilhar(discoTorre3);
-                        break;
-                    case 2:
-                        PilhaB.empilhar(discoTorre3);
-                        break;
-                    case 3:
-                        PilhaC.empilhar(discoTorre3);
-                        break;
+                if (PilhaC.estaVazia()) {
+                    System.out.println("Torre de origem vazia, escolha outra.");
+                    break;
+                } else {
+                    int discoTorre3 = PilhaC.desempilha();
+                    switch (destino) {
+                        case 1:
+                            PilhaA.empilhar(discoTorre3);
+                            break;
+                        case 2:
+                            PilhaB.empilhar(discoTorre3);
+                            break;
+                        case 3:
+                            PilhaC.empilhar(discoTorre3);
+                            break;
+                    }
+                    break;
                 }
-                break;
         }
+    }
+
+    static boolean verificarTorreVazia(int torre) {
+
+        return true;
     }
 
     static boolean verificarJogoGanho() {
 
-        if (PilhaC.pilha[0] == 5 && PilhaC.pilha[1] == 4 && PilhaC.pilha[2] == 3 && PilhaC.pilha[3] == 2 && PilhaC.pilha[4] == 1) {
+        if (PilhaC.pilha[0] == 5 && PilhaC.pilha[1] == 4 && PilhaC.pilha[2] == 3 && PilhaC.pilha[3] == 2
+                && PilhaC.pilha[4] == 1) {
             System.out.println("Parabéns! Você completou a Torre de Hanói!");
             return true;
         } else {
