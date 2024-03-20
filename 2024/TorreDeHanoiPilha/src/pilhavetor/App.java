@@ -127,7 +127,7 @@ public class App {
         }
     }
 
-    static boolean verificarTorreVazia(int torre) {
+    static boolean verificarDiscos(int origem, int destino) {
 
         return true;
     }
