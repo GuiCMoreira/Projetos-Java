@@ -12,6 +12,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
+```
 Crie um projeto Java que simulará a torre de Hanói.
 
 Neste projeto você deve utilizar três vetores e cada vetor representará uma pilha.
@@ -20,6 +21,7 @@ O programa deve proibir a colocação de um disco de valor maior sobre um disco 
 O jogador deverá indicar a pilha de retirada e a pilha de inserção.
 Poderá ser utilizado vetores do tipo Char  ou int para tornar mais fácil a verificação do tamanho dos discos.
 As pilhas devem desenvolver as rotinas de Empilha, Desempilha, EstaCheia, EstaVazia e Consulta topo.
+```
 
 https://github.com/GuiCMoreira/Projetos-Java/tree/main/2024/TorreDeHanoiPilha
 
