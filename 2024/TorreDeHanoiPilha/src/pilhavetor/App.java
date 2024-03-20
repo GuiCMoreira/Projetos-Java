@@ -24,7 +24,7 @@ public class App {
             movimento();
             imprimirJogo();
 
-        } while (!PilhaC.verificarJogoGanho());
+        } while (!verificarJogoGanho());
 
     }
 
@@ -108,6 +108,17 @@ public class App {
                 }
                 break;
         }
+    }
+
+    static boolean verificarJogoGanho() {
+
+        if (PilhaC.pilha[0] == 5 && PilhaC.pilha[1] == 4 && PilhaC.pilha[2] == 3 && PilhaC.pilha[3] == 2 && PilhaC.pilha[4] == 1) {
+            System.out.println("Parabéns! Você completou a Torre de Hanói!");
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 }

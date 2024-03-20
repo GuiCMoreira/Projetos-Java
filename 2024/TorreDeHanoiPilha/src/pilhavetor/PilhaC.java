@@ -52,15 +52,4 @@ public class PilhaC {
         return aux;
     }
     
-    static boolean verificarJogoGanho() {
-
-        if (pilha[0] == 5 && pilha[1] == 4 && pilha[2] == 3 && pilha[3] == 2 && pilha[4] == 1) {
-            System.out.println("Parabéns! Você completou a Torre de Hanói!");
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-    
 }
