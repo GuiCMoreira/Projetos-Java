@@ -72,17 +72,34 @@ public class App {
                     System.out.println("Torre de origem vazia, escolha outra.");
                     break;
                 } else {
-                    int discoTorre1 = PilhaA.desempilha();
                     switch (destino) {
                         case 1:
-                            PilhaA.empilhar(discoTorre1);
-                            break;
+                            if (!verificarDiscos(1, 1)) {
+                                System.out.println("Não é possível colocar um disco maior em cima de um menor.");
+                                break;
+                            } else {
+                                int discoTorre1 = PilhaA.desempilha();
+                                PilhaA.empilhar(discoTorre1);
+                                break;
+                            }
                         case 2:
-                            PilhaB.empilhar(discoTorre1);
-                            break;
+                            if (!verificarDiscos(1, 2)) {
+                                System.out.println("Não é possível colocar um disco maior em cima de um menor.");
+                                break;
+                            } else {
+                                int discoTorre1 = PilhaA.desempilha();
+                                PilhaB.empilhar(discoTorre1);
+                                break;
+                            }
                         case 3:
-                            PilhaC.empilhar(discoTorre1);
-                            break;
+                            if (!verificarDiscos(1, 3)) {
+                                System.out.println("Não é possível colocar um disco maior em cima de um menor.");
+                                break;
+                            } else {
+                                int discoTorre1 = PilhaA.desempilha();
+                                PilhaC.empilhar(discoTorre1);
+                                break;
+                            }
                     }
                     break;
                 }
@@ -91,17 +108,34 @@ public class App {
                     System.out.println("Torre de origem vazia, escolha outra.");
                     break;
                 } else {
-                    int discoTorre2 = PilhaB.desempilha();
                     switch (destino) {
                         case 1:
-                            PilhaA.empilhar(discoTorre2);
-                            break;
+                            if (!verificarDiscos(2, 1)) {
+                                System.out.println("Não é possível colocar um disco maior em cima de um menor.");
+                                break;
+                            } else {
+                                int discoTorre2 = PilhaB.desempilha();
+                                PilhaA.empilhar(discoTorre2);
+                                break;
+                            }
                         case 2:
-                            PilhaB.empilhar(discoTorre2);
-                            break;
+                            if (!verificarDiscos(2, 2)) {
+                                System.out.println("Não é possível colocar um disco maior em cima de um menor.");
+                                break;
+                            } else {
+                                int discoTorre2 = PilhaB.desempilha();
+                                PilhaB.empilhar(discoTorre2);
+                                break;
+                            }
                         case 3:
-                            PilhaC.empilhar(discoTorre2);
-                            break;
+                            if (!verificarDiscos(2, 3)) {
+                                System.out.println("Não é possível colocar um disco maior em cima de um menor.");
+                                break;
+                            } else {
+                                int discoTorre2 = PilhaB.desempilha();
+                                PilhaC.empilhar(discoTorre2);
+                                break;
+                            }
                     }
                     break;
                 }
@@ -110,17 +144,34 @@ public class App {
                     System.out.println("Torre de origem vazia, escolha outra.");
                     break;
                 } else {
-                    int discoTorre3 = PilhaC.desempilha();
                     switch (destino) {
                         case 1:
-                            PilhaA.empilhar(discoTorre3);
-                            break;
+                            if (!verificarDiscos(3, 1)) {
+                                System.out.println("Não é possível colocar um disco maior em cima de um menor.");
+                                break;
+                            } else {
+                                int discoTorre3 = PilhaC.desempilha();
+                                PilhaA.empilhar(discoTorre3);
+                                break;
+                            }
                         case 2:
-                            PilhaB.empilhar(discoTorre3);
-                            break;
+                            if (!verificarDiscos(3, 2)) {
+                                System.out.println("Não é possível colocar um disco maior em cima de um menor.");
+                                break;
+                            } else {
+                                int discoTorre3 = PilhaC.desempilha();
+                                PilhaB.empilhar(discoTorre3);
+                                break;
+                            }
                         case 3:
-                            PilhaC.empilhar(discoTorre3);
-                            break;
+                            if (!verificarDiscos(3, 3)) {
+                                System.out.println("Não é possível colocar um disco maior em cima de um menor.");
+                                break;
+                            } else {
+                                int discoTorre3 = PilhaC.desempilha();
+                                PilhaC.empilhar(discoTorre3);
+                                break;
+                            }
                     }
                     break;
                 }
