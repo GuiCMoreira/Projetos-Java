@@ -1,6 +1,6 @@
 package hanoi;
 
-public class Verificar_Discos {
+public class Verificar_Tamanho_Discos {
 
   static boolean verificarDiscos(int origem, int destino) {
     int discoTorreOrigem = 0;

@@ -18,14 +18,14 @@ public class App {
         Torre_1.empilhar(disco2);
         Torre_1.empilhar(disco1);
 
-        Imprimir_e_Verificar.imprimirJogo();
+        Imprimir_Jogo.imprimirJogo();
 
         do {
 
             Movimento.movimento();
-            Imprimir_e_Verificar.imprimirJogo();
+            Imprimir_Jogo.imprimirJogo();
 
-        } while (!Imprimir_e_Verificar.verificarJogoGanho());
+        } while (!Verificar_Jogo_Ganho.verificarJogoGanho());
     }
 
 }

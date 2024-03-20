@@ -37,7 +37,7 @@ public class Movimento {
         } else {
           switch (destino) {
             case 1:
-              if (!Verificar_Discos.verificarDiscos(1, 1)) {
+              if (!Verificar_Tamanho_Discos.verificarDiscos(1, 1)) {
                 System.out.println("Não é possível colocar um disco maior em cima de um menor.");
                 break;
               } else {
@@ -46,7 +46,7 @@ public class Movimento {
                 break;
               }
             case 2:
-              if (!Verificar_Discos.verificarDiscos(1, 2)) {
+              if (!Verificar_Tamanho_Discos.verificarDiscos(1, 2)) {
                 System.out.println("Não é possível colocar um disco maior em cima de um menor.");
                 break;
               } else {
@@ -55,7 +55,7 @@ public class Movimento {
                 break;
               }
             case 3:
-              if (!Verificar_Discos.verificarDiscos(1, 3)) {
+              if (!Verificar_Tamanho_Discos.verificarDiscos(1, 3)) {
                 System.out.println("Não é possível colocar um disco maior em cima de um menor.");
                 break;
               } else {
@@ -73,7 +73,7 @@ public class Movimento {
         } else {
           switch (destino) {
             case 1:
-              if (!Verificar_Discos.verificarDiscos(2, 1)) {
+              if (!Verificar_Tamanho_Discos.verificarDiscos(2, 1)) {
                 System.out.println("Não é possível colocar um disco maior em cima de um menor.");
                 break;
               } else {
@@ -82,7 +82,7 @@ public class Movimento {
                 break;
               }
             case 2:
-              if (!Verificar_Discos.verificarDiscos(2, 2)) {
+              if (!Verificar_Tamanho_Discos.verificarDiscos(2, 2)) {
                 System.out.println("Não é possível colocar um disco maior em cima de um menor.");
                 break;
               } else {
@@ -91,7 +91,7 @@ public class Movimento {
                 break;
               }
             case 3:
-              if (!Verificar_Discos.verificarDiscos(2, 3)) {
+              if (!Verificar_Tamanho_Discos.verificarDiscos(2, 3)) {
                 System.out.println("Não é possível colocar um disco maior em cima de um menor.");
                 break;
               } else {
@@ -109,7 +109,7 @@ public class Movimento {
         } else {
           switch (destino) {
             case 1:
-              if (!Verificar_Discos.verificarDiscos(3, 1)) {
+              if (!Verificar_Tamanho_Discos.verificarDiscos(3, 1)) {
                 System.out.println("Não é possível colocar um disco maior em cima de um menor.");
                 break;
               } else {
@@ -118,7 +118,7 @@ public class Movimento {
                 break;
               }
             case 2:
-              if (!Verificar_Discos.verificarDiscos(3, 2)) {
+              if (!Verificar_Tamanho_Discos.verificarDiscos(3, 2)) {
                 System.out.println("Não é possível colocar um disco maior em cima de um menor.");
                 break;
               } else {
@@ -127,7 +127,7 @@ public class Movimento {
                 break;
               }
             case 3:
-              if (!Verificar_Discos.verificarDiscos(3, 3)) {
+              if (!Verificar_Tamanho_Discos.verificarDiscos(3, 3)) {
                 System.out.println("Não é possível colocar um disco maior em cima de um menor.");
                 break;
               } else {
