@@ -180,6 +180,144 @@ public class App {
 
     static boolean verificarDiscos(int origem, int destino) {
 
+        int discoTorreOrigem = 0;
+        int discoTorreDestino = 0;
+
+        switch (origem) {
+            case 1:
+                switch (destino) {
+                    case 1:
+                        if (PilhaA.estaVazia()) {
+                            return true;
+                        } else {
+                            discoTorreOrigem = PilhaA.consultaTop();
+                            discoTorreDestino = PilhaA.consultaTop();
+
+                            if (discoTorreOrigem > discoTorreDestino) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+
+                    case 2:
+                        if (PilhaB.estaVazia()) {
+                            return true;
+                        } else {
+                            discoTorreOrigem = PilhaA.consultaTop();
+                            discoTorreDestino = PilhaB.consultaTop();
+
+                            if (discoTorreOrigem > discoTorreDestino) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+
+                    case 3:
+                        if (PilhaC.estaVazia()) {
+                            return true;
+                        } else {
+                            discoTorreOrigem = PilhaA.consultaTop();
+                            discoTorreDestino = PilhaC.consultaTop();
+
+                            if (discoTorreOrigem > discoTorreDestino) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+
+                }
+                break;
+            case 2:
+                switch (destino) {
+                    case 1:
+                        if (PilhaA.estaVazia()) {
+                            return true;
+                        } else {
+                            discoTorreOrigem = PilhaB.consultaTop();
+                            discoTorreDestino = PilhaA.consultaTop();
+
+                            if (discoTorreOrigem > discoTorreDestino) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                    case 2:
+                        if (PilhaB.estaVazia()) {
+                            return true;
+                        } else {
+                            discoTorreOrigem = PilhaB.consultaTop();
+                            discoTorreDestino = PilhaB.consultaTop();
+
+                            if (discoTorreOrigem > discoTorreDestino) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                    case 3:
+                        if (PilhaC.estaVazia()) {
+                            return true;
+                        } else {
+                            discoTorreOrigem = PilhaB.consultaTop();
+                            discoTorreDestino = PilhaC.consultaTop();
+
+                            if (discoTorreOrigem > discoTorreDestino) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                }
+                break;
+            case 3:
+                switch (destino) {
+                    case 1:
+                        if (PilhaA.estaVazia()) {
+                            return true;
+                        } else {
+                            discoTorreOrigem = PilhaC.consultaTop();
+                            discoTorreDestino = PilhaA.consultaTop();
+
+                            if (discoTorreOrigem > discoTorreDestino) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                    case 2:
+                        if (PilhaB.estaVazia()) {
+                            return true;
+                        } else {
+                            discoTorreOrigem = PilhaC.consultaTop();
+                            discoTorreDestino = PilhaB.consultaTop();
+
+                            if (discoTorreOrigem > discoTorreDestino) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                    case 3:
+                        if (PilhaC.estaVazia()) {
+                            return true;
+                        } else {
+                            discoTorreOrigem = PilhaC.consultaTop();
+                            discoTorreDestino = PilhaC.consultaTop();
+
+                            if (discoTorreOrigem > discoTorreDestino) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                }
+                break;
+        }
+
         return true;
     }
 
