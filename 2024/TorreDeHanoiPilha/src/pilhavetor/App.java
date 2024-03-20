@@ -66,42 +66,44 @@ public class App {
 
         switch (origem) {
             case 1:
-                int disco = PilhaA.desempilha();
+                int discoTorre1 = PilhaA.desempilha();
                 switch (destino) {
                     case 1:
-                        PilhaA.empilhar(disco);
+                        PilhaA.empilhar(discoTorre1);
                         break;
                     case 2:
-                        PilhaB.empilhar(disco);
+                        PilhaB.empilhar(discoTorre1);
                         break;
                     case 3:
-                        PilhaC.empilhar(disco);
+                        PilhaC.empilhar(discoTorre1);
                         break;
                 }
                 break;
             case 2:
+                int discoTorre2 = PilhaB.desempilha();
                 switch (destino) {
                     case 1:
-
+                        PilhaA.empilhar(discoTorre2);
                         break;
                     case 2:
-
+                        PilhaB.empilhar(discoTorre2);
                         break;
                     case 3:
-
+                        PilhaC.empilhar(discoTorre2);
                         break;
                 }
                 break;
             case 3:
+                int discoTorre3 = PilhaC.desempilha();
                 switch (destino) {
                     case 1:
-
+                        PilhaA.empilhar(discoTorre3);
                         break;
                     case 2:
-
+                        PilhaB.empilhar(discoTorre3);
                         break;
                     case 3:
-
+                        PilhaC.empilhar(discoTorre3);
                         break;
                 }
                 break;
