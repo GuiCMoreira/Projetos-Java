@@ -8,13 +8,10 @@ public class FuncoesFilaNormal {
     static int elementos = 0;
 
     static boolean estaCheia() {
-        int proximo = fim + 1;
-        proximo = (proximo == vetor.length ? 0 : proximo);
-        return proximo == inicio ? true : false;
+        return (elementos == vetor.length);
     }
 
     static boolean estaVazia() {
-
         return (elementos == 0);
     }
 
