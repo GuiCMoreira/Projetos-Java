@@ -25,7 +25,7 @@ public class FuncoesFilaNormal {
             elementos++;
             inicio = (inicio == -1 ? 0 : inicio);
         } else {
-            throw new RuntimeException("Fila Cheia");
+            throw new RuntimeException("\nFILA CHEIA");
         }
     }
 
@@ -37,7 +37,7 @@ public class FuncoesFilaNormal {
             inicio = (inicio == vetor.length ? 0 : inicio);
             elementos--;
         } else {
-            throw new RuntimeException("Fila vazia");
+            throw new RuntimeException("\nFILA VAZIA");
         }
 
         return retorno;
