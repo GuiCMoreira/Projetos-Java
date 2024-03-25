@@ -1,6 +1,6 @@
 package filacicularvetor;
 
-public class FuncoesFila {
+public class FuncoesFilaPreferencial {
 
     static String[] vetor = new String[5];
     static int inicio = -1;
