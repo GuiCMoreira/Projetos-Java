@@ -92,33 +92,6 @@ public class App {
             opcaoMenu = 0;
         }
 
-        /*
-         * 
-         * boolean erro = false;
-         * int execucoes = 0;
-         * 
-         * do {
-         * try {
-         * if (execucoes < 4) {
-         * System.out.println("Chamando " + FuncoesFila.remover());
-         * System.out.println("\nAvaliando a fila circular\n" +
-         * FuncoesFila.imprimirFila());
-         * execucoes++;
-         * } else {
-         * System.out.println("Adicionando Rodrigo");
-         * FuncoesFila.inserir("Rodrigo");
-         * System.out.println("\nAvaliando a fila circular\n" +
-         * FuncoesFila.imprimirFila());
-         * execucoes = 0;
-         * }
-         * } catch (RuntimeException e) {
-         * System.out.println(e.getMessage());
-         * erro = true;
-         * }
-         * } while (!erro);
-         * 
-         */
-
     }
 
 }
