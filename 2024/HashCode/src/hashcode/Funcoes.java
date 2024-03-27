@@ -2,8 +2,17 @@ package hashcode;
 
 public class Funcoes {
 
-  static int tabela[] = new int[10];
-  static int tamanho = 10;
+  private static int tabela[];
+  private static int tamanho;
+
+  public static void criar(int qtd) {
+    int total = qtd * 2;
+    while (!verificarPrimo(total)) {
+      total++;
+    }
+    tamanho = total;
+    tabela = new int[tamanho];
+  }
 
   public static boolean verificarPrimo(int n1) {
     for (int i = 2; i < n1; i++) {
@@ -32,14 +41,15 @@ public class Funcoes {
   public static boolean busca(int valor) {
     int id = fatorHash(valor);
     while (true) {
-        if (tabela[id] == valor) {
-            return true;
-        } else if (tabela[id] == 0) {
-            return false;
-        } else {
-            id = fatorHash(id+1);
-        }
+      if (tabela[id] == valor) {
+        return true;
+      } else if (tabela[id] == 0) {
+        break;
+      } else {
+        id = fatorHash(id + 1);
+      }
     }
+    return false;
   }
-  
+
 }
