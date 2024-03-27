@@ -23,30 +23,30 @@ public class App {
                             "\nQual o tipo de atendimento?\n1 - Normal\n2 - Preferencial",
                             "INSIRA UM NÚMERO", true);
 
+                    String nome = tcl.texto("\nInsira seu nome: ");
+
                     switch (tipoAtendimento) {
                         case 1:
-                            String nomeNormal = tcl.texto("\nInsira seu nome: ");
-                            try {
-                                System.out.println("\n" + nomeNormal + " ADICIONADO A FILA NORMAL.");
-                                FuncoesFilaNormal.inserir(nomeNormal);
-
-                            } catch (RuntimeException e) {
-                                System.out.println(e.getMessage());
-                                System.out.printf("\n%s não foi inserido\n", nomeNormal);
-
+                            if (!FuncoesFilaNormal.estaCheia()) {
+                                FuncoesFilaNormal.inserir(nome);
+                                System.out.println("\n" + nome + " ADICIONADO A FILA NORMAL.");
+                            } else {
+                                System.out.printf("\nFILA NORMAL CHEIA\n");
+                                System.out.printf("\n%s NÃO FOI INSERIDO\n", nome);
                             }
                             break;
 
                         case 2:
-                            String nomePreferencial = tcl.texto("\nInsira seu nome: ");
-                            try {
-                                System.out.println("\n" + nomePreferencial + " ADICIONADO A FILA PREFERENCIAL.");
-                                FuncoesFilaPreferencial.inserir(nomePreferencial);
-
-                            } catch (RuntimeException e) {
-                                System.out.println(e.getMessage());
-                                System.out.printf("\n%s não foi inserido\n", nomePreferencial);
-
+                            if (!FuncoesFilaPreferencial.estaCheia()) {
+                                FuncoesFilaPreferencial.inserir(nome);
+                                System.out.println("\n" + nome + " ADICIONADO A FILA PREFERENCIAL.");
+                            } else if (!FuncoesFilaNormal.estaCheia()) {
+                                FuncoesFilaNormal.inserir(nome);
+                                System.out.printf("\nFILA PREFERENCIAL CHEIA\n");
+                                System.out.println("\n" + nome + " ADICIONADO A FILA NORMAL.");
+                            } else {
+                                System.out.printf("\nFILAS CHEIAS\n");
+                                System.out.printf("\n%s NÃO FOI INSERIDO\n", nome);
                             }
                             break;
 
