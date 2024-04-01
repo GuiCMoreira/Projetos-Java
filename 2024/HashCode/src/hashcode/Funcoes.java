@@ -38,18 +38,22 @@ public class Funcoes {
     }
   }
 
-  public static boolean busca(int valor) {
+  public static int busca(int valor) {
     int id = fatorHash(valor);
     while (true) {
       if (tabela[id] == valor) {
-        return true;
+        return tabela[id];
       } else if (tabela[id] == 0) {
         break;
       } else {
         id = fatorHash(id + 1);
       }
     }
-    return false;
+    return 0;
+  }
+
+  public static int[] exibirTabela() {
+    return tabela;
   }
 
 }
