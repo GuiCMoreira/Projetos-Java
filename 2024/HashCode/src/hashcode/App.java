@@ -23,7 +23,18 @@ public class App {
         int[] tabela = Funcoes.exibirTabela();
         int i = 0;
         for (int valor : tabela) {
-            System.out.println("Posição " + i + ": " + valor);
+            System.out.print("indice-> " + (i++) + " valor-> ");
+            System.out.println(valor + " key-> " + (valor % tabela.length));
+        }
+
+        int teste = tcl.numeroInteiro("Digite um número: ", "Digite um número inteiro.", true);
+        
+        System.out.println("Buscando valor " + teste + "...");
+
+        if (Funcoes.busca(teste) != 0) {
+            System.out.println("Valor encontrado.");
+        } else {
+            System.out.println("Valor não encontrado.");
         }
 
     }
