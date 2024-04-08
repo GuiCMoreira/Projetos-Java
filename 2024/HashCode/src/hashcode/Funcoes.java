@@ -2,7 +2,7 @@ package hashcode;
 
 public class Funcoes {
 
-  private static int tabela[];
+  private static String tabela[];
   private static int tamanho;
 
   public static void criar(int qtd) {
@@ -11,7 +11,7 @@ public class Funcoes {
       total++;
     }
     tamanho = total;
-    tabela = new int[tamanho];
+    tabela = new String[tamanho];
   }
 
   public static boolean verificarPrimo(int n1) {
@@ -27,10 +27,10 @@ public class Funcoes {
     return (key % tamanho);
   }
 
-  public static void inserir(int valor) {
-    int id = fatorHash(valor);
+  public static void inserir(String valor) {
+    int id = fatorHash(hashString(valor));
     while (true) {
-      if (tabela[id] == 0) {
+      if (tabela[id] == null) {
         tabela[id] = valor;
         break;
       }
@@ -38,22 +38,28 @@ public class Funcoes {
     }
   }
 
-  public static int busca(int valor) {
-    int id = fatorHash(valor);
+  public static String busca(String valor) {
+    int id = fatorHash(hashString(valor));
     while (true) {
-      if (tabela[id] == valor) {
+      if (tabela[id] != null && tabela[id].equals(valor)) {
         return tabela[id];
-      } else if (tabela[id] == 0) {
+      } else if (tabela[id] == null) {
         break;
       } else {
         id = fatorHash(id + 1);
       }
     }
-    return 0;
+    return null;
   }
 
-  public static int[] exibirTabela() {
+  public static String[] exibirTabela() {
     return tabela;
+  }
+
+  public static int hashString(String str) {
+    int hash = 0;
+    hash = 31 * hash + (str == null ? 0 : str.hashCode());
+    return hash;
   }
 
 }

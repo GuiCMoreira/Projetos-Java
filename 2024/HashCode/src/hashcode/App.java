@@ -5,38 +5,62 @@ import digitacao.EntradaTeclado;
 public class App {
 
     public static EntradaTeclado tcl = new EntradaTeclado();
-    
+
     public static void main(String[] args) throws Exception {
 
-        int qtd = 200;
-        Funcoes.criar(qtd);
-        int elementos = 0;
+        int qtd = tcl.numeroInteiro(
+                "Quantidade de dados que serão inseridos: ",
+                "Digite um número inteiro.", true);
 
-        while (elementos <= qtd) {
-            int valor = (int) (Math.random() * 1000);
-            if (Funcoes.busca(valor) == 0) {
-                Funcoes.inserir(valor);
-                elementos++;
+        Funcoes.criar(qtd);
+
+        boolean sair = false;
+        while (!sair) {
+            menu();
+
+            int opcao = tcl.numeroInteiro("Digite uma opção: ", "Digite um número inteiro.", true);
+            switch (opcao) {
+                case 1:
+                    String nome = tcl.texto("Digite um nome: ");
+
+                    Funcoes.inserir(nome);
+                    break;
+                case 2:
+                    String buscarNome = tcl.texto("Buscar nome: ");
+
+                    if (Funcoes.busca(buscarNome) != null) {
+                        System.out.println("Valor encontrado.");
+                    } else {
+                        System.out.println("Valor não encontrado.");
+                    }
+                    break;
+                case 3:
+                    imprimirTabela();
+                    break;
+                case 4:
+                    sair = true;
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
+                    break;
             }
         }
 
-        int[] tabela = Funcoes.exibirTabela();
-        int i = 0;
-        for (int valor : tabela) {
-            System.out.print("indice-> " + (i++) + " valor-> ");
-            System.out.println(valor + " key-> " + (valor % tabela.length));
+    }
+
+    public static void menu() {
+        System.out.println("Menu");
+        System.out.println("1 - Inserir");
+        System.out.println("2 - Buscar");
+        System.out.println("3 - Exibir Tabela");
+        System.out.println("4 - Sair");
+    }
+
+    public static void imprimirTabela() {
+        String[] tabela = Funcoes.exibirTabela();
+        for (int i = 0; i < tabela.length; i++) {
+            System.out.println(i + " - " + tabela[i]);
         }
-
-        int teste = tcl.numeroInteiro("Digite um número: ", "Digite um número inteiro.", true);
-        
-        System.out.println("Buscando valor " + teste + "...");
-
-        if (Funcoes.busca(teste) != 0) {
-            System.out.println("Valor encontrado.");
-        } else {
-            System.out.println("Valor não encontrado.");
-        }
-
     }
 
 }
