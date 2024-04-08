@@ -9,8 +9,8 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         int qtd = tcl.numeroInteiro(
-                "Quantidade de dados que serão inseridos: ",
-                "Digite um número inteiro.", true);
+                "\nQuantidade de dados que serão inseridos: ",
+                "\nDigite um número inteiro.", true);
 
         Funcoes.criar(qtd);
 
@@ -18,20 +18,20 @@ public class App {
         while (!sair) {
             menu();
 
-            int opcao = tcl.numeroInteiro("Digite uma opção: ", "Digite um número inteiro.", true);
+            int opcao = tcl.numeroInteiro("\nDigite uma opção: ", "Digite um número inteiro.", true);
             switch (opcao) {
                 case 1:
-                    String nome = tcl.texto("Digite um nome: ");
+                    String nome = tcl.texto("\nDigite um nome: ");
 
                     Funcoes.inserir(nome);
                     break;
                 case 2:
-                    String buscarNome = tcl.texto("Buscar nome: ");
+                    String buscarNome = tcl.texto("\nBuscar nome: ");
 
                     if (Funcoes.busca(buscarNome) != null) {
-                        System.out.println("Valor encontrado.");
+                        System.out.println("\nValor encontrado.");
                     } else {
-                        System.out.println("Valor não encontrado.");
+                        System.out.println("\nValor não encontrado.");
                     }
                     break;
                 case 3:
@@ -41,7 +41,7 @@ public class App {
                     sair = true;
                     break;
                 default:
-                    System.out.println("Opção inválida.");
+                    System.out.println("\nOpção inválida.");
                     break;
             }
         }
@@ -49,7 +49,7 @@ public class App {
     }
 
     public static void menu() {
-        System.out.println("Menu");
+        System.out.println("\nMenu");
         System.out.println("1 - Inserir");
         System.out.println("2 - Buscar");
         System.out.println("3 - Exibir Tabela");
@@ -58,6 +58,7 @@ public class App {
 
     public static void imprimirTabela() {
         String[] tabela = Funcoes.exibirTabela();
+        System.out.println("\nTabela Hash");
         for (int i = 0; i < tabela.length; i++) {
             System.out.println(i + " - " + tabela[i]);
         }

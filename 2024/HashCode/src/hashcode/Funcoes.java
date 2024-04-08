@@ -35,8 +35,9 @@ public class Funcoes {
       if (tabela[id] == null) {
         tabela[id] = valor;
         inserido = true;
+        System.out.println("\n" + valor + " inserido na tabela.");
       } else if (tabela[id].equals(valor)) {
-        System.out.println("Nome já existe na tabela. Não foi possível inserir.");
+        System.out.println("\n" + valor + " já existe na tabela. Não foi possível inserir.");
         inserido = true;
       } else {
         id = fatorHash(id + 1);
