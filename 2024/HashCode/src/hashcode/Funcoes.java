@@ -45,18 +45,18 @@ public class Funcoes {
     }
   }
 
-  public static String busca(String valor) {
+  public static int busca(String valor) {
     int id = fatorHash(hashString(valor));
-    while (true) {
-      if (tabela[id] != null && tabela[id].equals(valor)) {
-        return tabela[id];
-      } else if (tabela[id] == null) {
-        break;
-      } else {
-        id = fatorHash(id + 1);
+    int tentativas = 0;
+
+    while (tabela[id] != null && tentativas < tamanho) {
+      if (tabela[id].equals(valor)) {
+        return id;
       }
+      id = fatorHash(id + 1);
+      tentativas++;
     }
-    return null;
+    return -1;
   }
 
   public static String[] exibirTabela() {

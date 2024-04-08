@@ -28,8 +28,8 @@ public class App {
                 case 2:
                     String buscarNome = tcl.texto("\nBuscar nome: ");
 
-                    if (Funcoes.busca(buscarNome) != null) {
-                        System.out.println("\nValor encontrado.");
+                    if (Funcoes.busca(buscarNome) != -1) {
+                        System.out.println("\nValor encontrado na posição " + Funcoes.busca(buscarNome) + ".");
                     } else {
                         System.out.println("\nValor não encontrado.");
                     }
