@@ -1,18 +1,26 @@
-## Getting Started
+<h1 align="center"> Tabela HashCode - Java </h1>
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<p align="center">
+Desenvolvido por Guilherme de Carvalho<br>Estudante de Análise e Desenvolvimento de Sistemas<br> FATEC -Bragança Paulista <br/>
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
+## 🚀 Tecnologias
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Java
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## 💻 Projeto
 
-## Dependency Management
+https://github.com/GuiCMoreira/Projetos-Java/tree/main/2024/HashCode
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## :memo: Licença
+
+Esse projeto está sob a licença MIT.
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
+
+<p align="center">
+Feito com ♥ por Guilherme de Carvalho :wave: 
+</p>
