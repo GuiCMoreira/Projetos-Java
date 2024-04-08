@@ -4,6 +4,7 @@ public class Funcoes {
 
   private static String tabela[];
   private static int tamanho;
+  private static int qtdElementos;
 
   public static void criar(int qtd) {
     int total = qtd * 2;
@@ -28,6 +29,10 @@ public class Funcoes {
   }
 
   public static void inserir(String valor) {
+    if ((double) qtdElementos / tamanho > 0.7) {
+      redimensionar();
+    }
+
     int id = fatorHash(hashString(valor));
     boolean inserido = false;
 
@@ -35,6 +40,7 @@ public class Funcoes {
       if (tabela[id] == null) {
         tabela[id] = valor;
         inserido = true;
+        qtdElementos++;
         System.out.println("\n" + valor + " inserido na tabela.");
       } else if (tabela[id].equals(valor)) {
         System.out.println("\n" + valor + " já existe na tabela. Não foi possível inserir.");
@@ -69,4 +75,28 @@ public class Funcoes {
     return hash;
   }
 
+  // Método para redimensionar a tabela
+  private static void redimensionar() {
+    int novoTamanho = tamanho * 2; // Aumenta o tamanho da tabela para o dobro
+    while (!verificarPrimo(novoTamanho)) {
+      novoTamanho++;
+    }
+
+    String[] novaTabela = new String[novoTamanho];
+
+    // Re-insere todos os elementos na nova tabela
+    for (String elemento : tabela) {
+      if (elemento != null) {
+        int novoId = fatorHash(hashString(elemento));
+        while (novaTabela[novoId] != null) {
+          novoId = fatorHash(novoId + 1);
+        }
+        novaTabela[novoId] = elemento;
+      }
+    }
+
+    tabela = novaTabela; // Atualiza a referência da tabela antiga para a nova
+    tamanho = novoTamanho; // Atualiza o tamanho da tabela
+  }
+  
 }
