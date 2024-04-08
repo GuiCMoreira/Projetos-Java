@@ -13,9 +13,8 @@ public class Pilha {
     }
     public static void empilhar(String valor){
         if (!estaCheia()){
-            // top++;
-            // pilha[top] = valor;
-            pilha[++top] = valor;
+            top++;
+            pilha[top] = valor;
         }
         else{
             throw new RuntimeException("Pilha Cheia.");
@@ -26,9 +25,8 @@ public class Pilha {
         String retorno = "";
         if (!estaVazia()){
             retorno = pilha[top];
-            //pilha[top] = null;
-            //top--;
-            pilha[top--] = null;
+            pilha[top] = null;
+            top--;
         }
         else{
             throw new RuntimeException("Pilha vazia.");
