@@ -18,7 +18,7 @@ public class App {
         while (!sair) {
             menu();
 
-            int opcao = tcl.numeroInteiro("\nDigite uma opção: ", "Digite um número inteiro.", true);
+            int opcao = tcl.numeroInteiro("\nDigite uma opção: ", "\nDigite um número inteiro.", true);
             switch (opcao) {
                 case 1:
                     String nome = tcl.texto("\nDigite um nome: ");
@@ -29,9 +29,9 @@ public class App {
                     String buscarNome = tcl.texto("\nBuscar nome: ");
 
                     if (Funcoes.busca(buscarNome) != -1) {
-                        System.out.println("\nValor encontrado na posição " + Funcoes.busca(buscarNome) + ".");
+                        System.out.println("\nDado encontrado na posição " + Funcoes.busca(buscarNome) + " da Tabela Hash.");
                     } else {
-                        System.out.println("\nValor não encontrado.");
+                        System.out.println("\nDado não encontrado na Tabela Hash.");
                     }
                     break;
                 case 3:
