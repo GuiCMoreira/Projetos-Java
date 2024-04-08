@@ -98,5 +98,5 @@ public class Funcoes {
     tabela = novaTabela; // Atualiza a referência da tabela antiga para a nova
     tamanho = novoTamanho; // Atualiza o tamanho da tabela
   }
-  
+
 }
