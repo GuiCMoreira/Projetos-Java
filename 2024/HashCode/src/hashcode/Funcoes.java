@@ -24,17 +24,23 @@ public class Funcoes {
   }
 
   public static int fatorHash(int key) {
-    return (key % tamanho);
+    return (key & 0x7FFFFFFF) % tamanho;
   }
 
   public static void inserir(String valor) {
     int id = fatorHash(hashString(valor));
-    while (true) {
+    boolean inserido = false;
+
+    while (!inserido) {
       if (tabela[id] == null) {
         tabela[id] = valor;
-        break;
+        inserido = true;
+      } else if (tabela[id].equals(valor)) {
+        System.out.println("Nome já existe na tabela. Não foi possível inserir.");
+        inserido = true;
+      } else {
+        id = fatorHash(id + 1);
       }
-      id = fatorHash(id + 1);
     }
   }
 
