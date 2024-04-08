@@ -21,15 +21,15 @@ public class App {
             int opcao = tcl.numeroInteiro("\nDigite uma opção: ", "\nDigite um número inteiro.", true);
             switch (opcao) {
                 case 1:
-                    String nome = tcl.texto("\nDigite um nome: ");
+                    String dado = tcl.texto("\nInsira o dado: ");
 
-                    Funcoes.inserir(nome);
+                    Funcoes.inserir(dado);
                     break;
                 case 2:
-                    String buscarNome = tcl.texto("\nBuscar nome: ");
+                    String buscarDado = tcl.texto("\nBuscar dado: ");
 
-                    if (Funcoes.busca(buscarNome) != -1) {
-                        System.out.println("\nDado encontrado na posição " + Funcoes.busca(buscarNome) + " da Tabela Hash.");
+                    if (Funcoes.busca(buscarDado) != -1) {
+                        System.out.println("\nDado encontrado na posição " + Funcoes.busca(buscarDado) + " da Tabela Hash.");
                     } else {
                         System.out.println("\nDado não encontrado na Tabela Hash.");
                     }
