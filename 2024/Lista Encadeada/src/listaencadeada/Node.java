@@ -21,7 +21,7 @@ public class Node<P> {
     return proximo;
   }
 
-  public void setProximo(Node proximo) {
+  public void setProximo(Node<P> proximo) {
     this.proximo = proximo;
   }
 

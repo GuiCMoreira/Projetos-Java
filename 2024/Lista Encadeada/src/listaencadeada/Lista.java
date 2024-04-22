@@ -2,9 +2,14 @@ package listaencadeada;
 
 public class Lista<G> {
   private Node<G> inicio;
+  private int elementos = 0;
 
   public Lista() {
     inicio = null;
+  }
+
+  public int tamanho() {
+    return elementos;
   }
 
   public void insert(G info) {
@@ -17,6 +22,7 @@ public class Lista<G> {
       }
       atual = new Node<G>(info);
     }
+    elementos++;
   }
 
 }
