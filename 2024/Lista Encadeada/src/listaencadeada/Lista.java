@@ -25,4 +25,13 @@ public class Lista<G> {
     elementos++;
   }
 
+  public void insertBegin(G info) {
+    Node<G> novo = new Node<G>(info);
+    elementos++;
+    if (inicio != null) {
+      novo.setProximo(inicio);
+    }
+    inicio = novo;
+  }
+
 }

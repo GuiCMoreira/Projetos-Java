@@ -4,6 +4,7 @@ public class Node<P> {
   private P info;
   private Node<P> proximo;
 
+  // construtor
   public Node(P info) {
     this.info = info;
   }
