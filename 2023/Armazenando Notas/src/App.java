@@ -4,7 +4,6 @@ public class App {
 
     private static String[] alunos = new String[2];
     private static double[][] notas = new double[2][3];
-    private static double[] medias = new double[2];
 
     public static void main(String[] args) throws Exception {
         EntradaTeclado tcl = new EntradaTeclado();
