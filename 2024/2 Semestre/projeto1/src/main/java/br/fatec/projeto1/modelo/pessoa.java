@@ -45,13 +45,17 @@ public class pessoa {
     return nascimento;
   }
 
-  public void setNascimento(int nascimento) {
+  public void setNascimento(int nascimento) throws Exception {
     int anoAtual = LocalDateTime.now().getYear();
-    if (nascimento <= anoAtual) {
-      this.nascimento = nascimento;
-    } else {
-      throw new IllegalArgumentException("Ano de nascimento inválido");
+    if (nascimento > anoAtual) {
+      throw new Exception("Ano no futuro");
     }
+    if (nascimento < 0) {
+      throw new Exception("Ano negativo");
+    } else {
+      this.nascimento = nascimento;
+    }
+
   }
 
 }

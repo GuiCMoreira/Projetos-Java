@@ -16,8 +16,13 @@ public class Principal {
   }
 
   @GetMapping("p3")
-  public ModelAndView testeObjeto() {
+  public ModelAndView testeObjeto() throws Exception {
     pessoa p = new pessoa("João", "123.456.789-00");
+    try {
+      p.setNascimento(2025);
+    } catch (Exception e) {
+      p.setNascimento(0);
+    }
     ModelAndView mv = new ModelAndView("pagina2.html");
     mv.addObject("pessoa", p);
     return mv;
