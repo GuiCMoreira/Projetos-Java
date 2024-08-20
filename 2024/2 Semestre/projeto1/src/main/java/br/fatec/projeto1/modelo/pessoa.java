@@ -1,14 +1,16 @@
 package br.fatec.projeto1.modelo;
 
+import java.time.LocalDateTime;
+
 public class pessoa {
   private String nome;
   private String cpf;
-  private String nascimento;
+  private int nascimento;
 
   public pessoa() {
     nome = "";
     cpf = "";
-    nascimento = "2001";
+    nascimento = 2001;
   }
 
   public pessoa(String nome, String cpf) {
@@ -17,7 +19,7 @@ public class pessoa {
     this.cpf = cpf;
   }
 
-  public pessoa(String nome, String cpf, String nascimento) {
+  public pessoa(String nome, String cpf, int nascimento) {
     this.nome = nome;
     this.cpf = cpf;
     this.nascimento = nascimento;
@@ -39,12 +41,17 @@ public class pessoa {
     this.cpf = cpf;
   }
 
-  public String getNascimento() {
+  public int getNascimento() {
     return nascimento;
   }
 
-  public void setNascimento(String nascimento) {
-    this.nascimento = nascimento;
+  public void setNascimento(int nascimento) {
+    int anoAtual = LocalDateTime.now().getYear();
+    if (nascimento <= anoAtual) {
+      this.nascimento = nascimento;
+    } else {
+      throw new IllegalArgumentException("Ano de nascimento inválido");
+    }
   }
 
 }
