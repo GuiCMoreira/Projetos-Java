@@ -1,25 +1,23 @@
 package br.fatec.projeto1.modelo;
 
-import java.time.LocalDateTime;
-
-public class pessoa {
+public class Pessoa {
   private String nome;
   private String cpf;
   private int nascimento;
 
-  public pessoa() {
+  public Pessoa() {
     nome = "";
     cpf = "";
-    nascimento = 2001;
+    nascimento = 2000;
   }
 
-  public pessoa(String nome, String cpf) {
+  public Pessoa(String nome, String cpf) {
     this();
     this.nome = nome;
     this.cpf = cpf;
   }
 
-  public pessoa(String nome, String cpf, int nascimento) {
+  public Pessoa(String nome, String cpf, int nascimento) {
     this.nome = nome;
     this.cpf = cpf;
     this.nascimento = nascimento;
@@ -46,7 +44,7 @@ public class pessoa {
   }
 
   public void setNascimento(int nascimento) throws Exception {
-    int anoAtual = LocalDateTime.now().getYear();
+    int anoAtual = 2024;
     if (nascimento > anoAtual) {
       throw new Exception("Ano no futuro");
     }
@@ -56,6 +54,42 @@ public class pessoa {
       this.nascimento = nascimento;
     }
 
+  }
+
+  @Override
+  public String toString() {
+    return "pessoa [cpf=" + cpf + ", nascimento=" + nascimento + ", nome=" + nome + "]";
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
+    result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Pessoa other = (Pessoa) obj;
+    if (cpf == null) {
+      if (other.cpf != null)
+        return false;
+    } else if (!cpf.equals(other.cpf))
+      return false;
+    if (nome == null) {
+      if (other.nome != null)
+        return false;
+    } else if (!nome.equals(other.nome))
+      return false;
+    return true;
   }
 
 }
