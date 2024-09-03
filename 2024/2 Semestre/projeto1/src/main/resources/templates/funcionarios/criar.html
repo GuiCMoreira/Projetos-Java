@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar</title>
+  </head>
+  <body>
+    <h1>Criar Funcionário</h1>
+
+    <form th:action="@{novo}" method="post" th:object="${funcionario}">
+      <div>
+        <label for="txtnome">Nome:</label>
+        <input type="text" id="txtnome" th:field="*{nome}" />
+      </div>
+      <div>
+        <label for="txtcpf">CPF:</label>
+        <input type="text" id="txtcpf" th:field="*{cpf}" />
+      </div>
+      <div>
+        <label for="txtsalario">Salário:</label>
+        <input type="text" id="txtsalario" th:field="*{salarioMes}" />
+      </div>
+      <button type="submit">Salvar</button>
+    </form>
+  </body>
+</html>

@@ -5,8 +5,11 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 import br.fatec.projeto1.interfaces.IControladores;
 import br.fatec.projeto1.modelo.Funcionario;
@@ -15,25 +18,34 @@ import br.fatec.projeto1.modelo.Funcionario;
 @RequestMapping("/funcionarios")
 public class FuncionariosController implements IControladores<Funcionario, String> {
 
+  private List<Funcionario> meusFuncionarios;
+
+  public FuncionariosController() {
+    meusFuncionarios = new ArrayList<>();
+  }
+
   @GetMapping("/todos")
   @Override
   public ModelAndView listar() {
-    List<Funcionario> meusFuncionarios = new ArrayList<>();
+    // List<Funcionario> meusFuncionarios = new ArrayList<>();
     ModelAndView mv = new ModelAndView("funcionarios/todos.html");
     mv.addObject("funcionarios", meusFuncionarios);
     return mv;
   }
 
+  @GetMapping("/novo")
   @Override
   public ModelAndView novo() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'novo'");
+    ModelAndView mv = new ModelAndView("funcionarios/criar.html");
+    mv.addObject("funcionario", new Funcionario());
+    return mv;
   }
 
+  @PostMapping("/novo")
   @Override
   public ModelAndView novo(Funcionario objeto) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'novo'");
+    meusFuncionarios.add(objeto);
+    return new ModelAndView("redirect:todos");
   }
 
   @Override
