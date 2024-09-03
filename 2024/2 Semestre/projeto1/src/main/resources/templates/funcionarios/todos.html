@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Funcionários</title>
+</head>
+<body>
+  <h1>Lista de Funcionários</h1>
+  <table>
+    <th>
+      <td>CPF</td>
+      <td>Nome</td>
+    </th>
+    <tr th:each=" umFunc : ${funcionarios}">
+      <td th:text="${umFunc.cpf}"></td>
+      <td th:text="${umFunc.nome}"></td>
+    </tr>
+  </table>
+</body>
+</html>
