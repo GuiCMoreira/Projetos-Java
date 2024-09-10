@@ -1,7 +1,5 @@
 package br.fatec.projeto1.modelo;
 
-import java.util.Currency;
-
 import lombok.Getter;
 import lombok.Setter;
 
