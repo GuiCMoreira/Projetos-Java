@@ -7,8 +7,8 @@
   </head>
   <body>
     <h1>Editar Funcionário</h1>
-
     <form th:action="@{editar}" method="post" th:object="${funcionario}">
+      <input type="hidden" th:value="*{cpf}" name="id" />
       <div>
         <label for="txtnome">Nome:</label>
         <input type="text" id="txtnome" th:field="*{nome}" />
@@ -25,6 +25,7 @@
         <label for="txtnascimento">Nascimento:</label>
         <input type="text" id="txtnascimento" th:field="*{nascimento}" />
       </div>
+      <br>
       <button type="submit">Salvar</button>
     </form>
   </body>

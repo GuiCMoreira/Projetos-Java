@@ -25,8 +25,9 @@
         <label th:text="*{nascimento}"></label>
       </div>
     </fieldset>
-    <button><a th:href="@{../todos}">Voltar</a></button>
-    <button><a th:href="@{editar/}+${funcionario.cpf}">Editar</a></button>
+    <br>
+    <a th:href="@{../todos}"><button>Voltar</button></a>
+    <a th:href="@{../editar/}+${funcionario.cpf}"><button>Editar</button></a>
 
   </body>
 </html>
