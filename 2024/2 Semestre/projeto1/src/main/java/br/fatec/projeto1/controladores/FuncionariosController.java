@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 
 import br.fatec.projeto1.interfaces.IControladores;
 import br.fatec.projeto1.modelo.Funcionario;
@@ -47,16 +47,45 @@ public class FuncionariosController implements IControladores<Funcionario, Strin
     return new ModelAndView("redirect:todos");
   }
 
+  @GetMapping("/editar/{cpf}")
   @Override
-  public ModelAndView editar(String id) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'editar'");
+  public ModelAndView editar(@PathVariable("cpf") String id) {
+    ModelAndView mv = new ModelAndView("funcionarios/editar.html");
+    if (id == null) {
+      mv = new ModelAndView("/404.html");
+    }
+    boolean achou = false;
+    for (Funcionario funcionario : meusFuncionarios) {
+      if (funcionario.getCpf().equals(id)) {
+        mv.addObject("funcionario", funcionario);
+        achou = true;
+        break;
+      }
+    }
+    if (!achou) {
+      mv = new ModelAndView("/404.html");
+    }
+    return mv;
   }
 
+  @PostMapping("/editar/{id}")
   @Override
   public ModelAndView editar(String id, Funcionario objeto) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'editar'");
+    ModelAndView mv = new ModelAndView("redirect:../todos");
+    boolean achou = false;
+    for (Funcionario funcionario : meusFuncionarios) {
+      if (funcionario.getCpf().equals(id)) {
+        meusFuncionarios.remove(funcionario);
+        achou = true;
+        break;
+      }
+    }
+    if (achou) {
+      meusFuncionarios.add(objeto);
+    } else {
+      mv = new ModelAndView("/404.html");
+    }
+    return mv;
   }
 
   @Override
@@ -71,10 +100,25 @@ public class FuncionariosController implements IControladores<Funcionario, Strin
     throw new UnsupportedOperationException("Unimplemented method 'excluir'");
   }
 
+  @GetMapping("/detalhar/{id}")
   @Override
-  public ModelAndView detalhar(String id) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'detalhar'");
+  public ModelAndView detalhar(@PathVariable("id") String id) {
+    ModelAndView mv = new ModelAndView("funcionarios/detalhar.html");
+    if (id == null) {
+      mv = new ModelAndView("/404.html");
+    }
+    boolean achou = false;
+    for (Funcionario funcionario : meusFuncionarios) {
+      if (funcionario.getCpf().equals(id)) {
+        mv.addObject("funcionario", funcionario);
+        achou = true;
+        break;
+      }
+    }
+    if (!achou) {
+      mv = new ModelAndView("/404.html");
+    }
+    return mv;
   }
 
 }

@@ -3,25 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Criar</title>
+    <title>Editar</title>
   </head>
   <body>
-    <h1>Criar Funcionário</h1>
-    <a th:href="@{todos}"><button>Voltar</button></a><br>
-    <form th:action="@{novo}" method="post" th:object="${funcionario}">
+    <h1>Editar Funcionário</h1>
+
+    <form th:action="@{editar}" method="post" th:object="${funcionario}">
       <div>
         <label for="txtnome">Nome:</label>
         <input type="text" id="txtnome" th:field="*{nome}" />
       </div>
       <div>
         <label for="txtcpf">CPF:</label>
-        <input type="text" id="txtcpf" th:field="*{cpf}" />
+        <input type="text" id="txtcpf" th:field="*{cpf}" readonly />
       </div>
       <div>
         <label for="txtsalario">Salário:</label>
         <input type="text" id="txtsalario" th:field="*{salarioMes}" />
       </div>
-      <br />
+      <div>
+        <label for="txtnascimento">Nascimento:</label>
+        <input type="text" id="txtnascimento" th:field="*{nascimento}" />
+      </div>
       <button type="submit">Salvar</button>
     </form>
   </body>
