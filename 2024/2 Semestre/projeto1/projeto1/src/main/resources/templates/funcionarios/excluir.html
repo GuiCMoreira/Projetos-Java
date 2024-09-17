@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes</title>
+</head>
+<body>
+    <h1>Detalhes sobre o Funcionário</h1>
+    <fieldset th:object="${funcionario}">
+        <div>
+            <label>CPF: </label>
+            <label th:text="*{cpf}"></label>
+        </div>
+        <div>
+            <label>Nome: </label>
+            <label th:text="*{nome}"></label>
+        </div>
+        <div>
+            <label>Salário: </label>
+            <label th:text="*{salarioMes}"></label>
+        </div>
+    </fieldset>
+    <form th:action="@{excluir}" method="post" th:object="${funcionario}">
+        <input type="hidden" name="id" th:value="*{cpf}">
+        <input type="submit" value="Excluir">
+    </form>
+    <a th:href="@{../todos}">Voltar</a>
+    <a th:href="@{../editar/}+${funcionario.cpf}">Editar</a>
+</body>
+</html>

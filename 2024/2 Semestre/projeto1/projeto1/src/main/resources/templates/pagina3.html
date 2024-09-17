@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página para aquisição de dados</title>
+  </head>
+  <body>
+    <form action="/salvar" th:object="${pessoa}" method="post">
+      <div>
+        <label for="txtnome">Nome</label>
+        <input type="text" th:field="*{nome}" id="txtnome" />
+      </div>
+      <div>
+        <label for="txtnascimento">Ano de Nascimento</label>
+        <input type="text" th:field="*{anoNascimento}" id="txtnascimento" />
+      </div>
+      <div>
+        <label for="txtcpf">CPF</label>
+        <input type="text" th:field="*{cpf}" id="txtcpf" />
+      </div>
+      <input type="submit" value="Salvar" />
+    </form>
+  </body>
+</html>
