@@ -11,23 +11,24 @@ import org.springframework.web.servlet.ModelAndView;
 import br.fatec.projeto1.interfaces.IControladores;
 import br.fatec.projeto1.modelos.Funcionario;
 import br.fatec.projeto1.repositorios.FuncionarioRepositorio;
+import br.fatec.projeto1.servicos.FuncionarioServico;
 
 @Controller
 @RequestMapping("/funcionarios")
 public class FuncionariosController
         implements IControladores<Funcionario, String> {
 
-    private FuncionarioRepositorio meusFuncionarios;
+    private FuncionarioServico funcserv;
 
-    public FuncionariosController(FuncionarioRepositorio fr) {
-        meusFuncionarios = fr;
+    public FuncionariosController(FuncionarioServico funcserv) {
+        this.funcserv = funcserv;
     }
 
     @GetMapping("/todos")
     @Override
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("funcionarios/todos.html");
-        mv.addObject("funcionarios", meusFuncionarios.todos());
+        mv.addObject("funcionarios", funcserv.listar());
         return mv;
     }
 
@@ -35,14 +36,14 @@ public class FuncionariosController
     @Override
     public ModelAndView novo() {
         ModelAndView mv = new ModelAndView("funcionarios/criar.html");
-        mv.addObject("funcionario", new Funcionario());
+        mv.addObject("funcionario", funcserv.novo());
         return mv;
     }
 
     @PostMapping("/novo")
     @Override
     public ModelAndView novo(Funcionario objeto) {
-        meusFuncionarios.adiciona(objeto);
+        objeto = funcserv.inserir(objeto);
         return new ModelAndView("redirect:todos");
     }
 
@@ -55,8 +56,7 @@ public class FuncionariosController
             mv = new ModelAndView("/404.html");
             return mv;
         }
-        Funcionario funcionario = meusFuncionarios.busca(id);
-        // if (!achou){
+        Funcionario funcionario = funcserv.localiza(id);
         if (funcionario == null) {
             mv = new ModelAndView("/404.html");
             mv.setStatus(HttpStatus.NOT_FOUND);
@@ -70,7 +70,7 @@ public class FuncionariosController
     @Override
     public ModelAndView editar(String id, Funcionario objeto) {
         ModelAndView mv = new ModelAndView("redirect:../todos");
-        if (meusFuncionarios.altera(id, objeto) == false) {
+        if (funcserv.alterar(id, objeto) == null) {
             mv = new ModelAndView("/404.html");
         }
         return mv;
@@ -85,7 +85,7 @@ public class FuncionariosController
             return mv;
         }
 
-        Funcionario funcionario = meusFuncionarios.busca(id);
+        Funcionario funcionario = funcserv.localiza(id);
 
         if (funcionario == null) {
             mv = new ModelAndView("/404.html");
@@ -100,7 +100,7 @@ public class FuncionariosController
     @Override
     public ModelAndView excluir(String id, Funcionario objeto) {
         ModelAndView mv = new ModelAndView("redirect:../todos");
-        if (meusFuncionarios.remover(id) == false) {
+        if (funcserv.excluir(id) == false) {
             mv = new ModelAndView("/404.html");
         }
         return mv;
@@ -115,7 +115,7 @@ public class FuncionariosController
             return mv;
         }
 
-        Funcionario funcionario = meusFuncionarios.busca(id);
+        Funcionario funcionario = funcserv.localiza(id);
         if (funcionario != null) {
             mv.addObject("funcionario", funcionario);
         } else {
