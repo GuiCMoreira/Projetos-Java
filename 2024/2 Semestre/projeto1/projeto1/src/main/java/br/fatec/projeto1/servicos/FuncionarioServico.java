@@ -11,7 +11,7 @@ public class FuncionarioServico {
   private FuncionarioRepositorio repfunc;
 
   public FuncionarioServico(FuncionarioRepositorio repfunc) {
-    if (repfunc == null) {
+    if (this.repfunc == null) {
       this.repfunc = repfunc;
     }
   }
