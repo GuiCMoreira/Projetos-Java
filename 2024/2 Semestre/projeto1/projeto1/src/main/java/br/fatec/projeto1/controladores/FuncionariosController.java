@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.fatec.projeto1.interfaces.IControladores;
 import br.fatec.projeto1.modelos.Funcionario;
-import br.fatec.projeto1.repositorios.FuncionarioRepositorio;
 import br.fatec.projeto1.servicos.FuncionarioServico;
 
 @Controller
