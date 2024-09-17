@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projeto 1 = Novo Funcionário</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Novo Funcionário</h1>
-    
-    <form th:action="@{novo}" method="post"
-            th:object="${funcionario}">
-        <div>
-            <label for="txtnome">Nome</label>
-            <input type="text" id="txtnome" th:field="*{nome}">
-        </div>
-        <div>
-            <label for="txtcpf">Cpf</label>
-            <input type="text" id="txtcpf" th:field="*{cpf}">
-        </div>
-        <div>
-            <label for="txtsalario">Salario</label>
-            <input type="text" id="txtsalario" th:field="*{salarioMes}">
-        </div>
-        <input type="submit" value="Salvar">
+
+    <form th:action="@{novo}" method="post" th:object="${funcionario}">
+      <div>
+        <label for="txtnome">Nome</label>
+        <input type="text" id="txtnome" th:field="*{nome}" />
+      </div>
+      <div>
+        <label for="txtcpf">Cpf</label>
+        <input type="text" id="txtcpf" th:field="*{cpf}" />
+      </div>
+      <div>
+        <label for="txtsalario">Salario</label>
+        <input type="text" id="txtsalario" th:field="*{salarioMes}" />
+      </div>
+      <input type="submit" value="Salvar" />
     </form>
-</body>
+  </body>
 </html>
