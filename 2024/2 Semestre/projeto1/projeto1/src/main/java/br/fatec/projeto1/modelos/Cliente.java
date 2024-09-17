@@ -17,10 +17,8 @@ public class Cliente extends Pessoa {
     }
 
     public Cliente(String nome, int anoNascimento, String cpf, double credito) {
-        // super(nome, anoNascimento, cpf);
         this.credito = credito;
         correspondencia = new Endereco();
-
     }
 
 }

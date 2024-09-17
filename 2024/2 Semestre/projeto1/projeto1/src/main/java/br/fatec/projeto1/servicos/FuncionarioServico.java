@@ -21,22 +21,26 @@ public class FuncionarioServico {
   }
 
   public Funcionario novo() {
-    return null;
+    return new Funcionario();
   }
 
   public Funcionario localiza(String chave) {
-    return null;
+    return repfunc.busca(chave);
   }
 
   public Funcionario inserir(Funcionario func) {
-    return null;
+    repfunc.adiciona(func);
+    return localiza(func.getCpf());
   }
 
   public Funcionario alterar(String chave, Funcionario func) {
+    if (repfunc.altera(chave, func) == true) {
+      return func;
+    }
     return null;
   }
 
   public boolean excluir(String chave) {
-    return false;
+    return repfunc.remover(chave);
   }
 }
