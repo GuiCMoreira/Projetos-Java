@@ -38,4 +38,8 @@ public class AlunosServicos {
     repositorio.delete(aluno);
   }
 
+  public void excluirRa(String ra) {
+    repositorio.deleteById(ra);
+  }
+
 }
