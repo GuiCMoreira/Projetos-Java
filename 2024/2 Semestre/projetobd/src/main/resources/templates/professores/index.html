@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos</title>
+</head>
+<body>
+    <div >
+        <ul th:each="item : ${Menu}">
+            <li>
+                <a th:href="*{item.url}" th:text="${item.titulo}"></a>
+            </li>
+        </ul>
+        
+    </div>
+    <h1>Lista de alunos</h1>
+    
+    <a th:href="@{alunos/novo}"><button>Novo Aluno</button></a>
+    <table>
+        <tr th:each="aluno : ${alunos}">
+            <td th:text="*{aluno.nome}"></td>
+            <td th:text="*{aluno.ra}"></td>
+            <td><a th:href="@{alunos/editar/}+*{aluno.ra}">Editar</a></td>
+            <td><a th:href="@{alunos/excluir/}+*{aluno.ra}">Excluir</a></td>
+            <td><a th:href="@{alunos/detalhar/}+*{aluno.ra}">Detalhar</a></td>
+        </tr>
+    </table>
+</body>
+</html>
