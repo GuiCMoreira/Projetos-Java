@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle de Veículos</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #a3b5cc;
+      }
+
+      .header {
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .card {
+        background-color: #7a91b2;
+        color: #333;
+        padding: 20px;
+        width: 200px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #d5d9e1;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #bfc4cf;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Controle de Veículos</h1>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <h3>Veículo:</h3>
+        <p><strong>Modelo:</strong> Ferrari</p>
+        <p>
+          <strong>Velocidade:</strong> <span id="velocidadeCarro">0 km/h</span>
+        </p>
+        <p><strong>Marcha:</strong> <span id="marchaCarro">1</span></p>
+        <button onclick="acelerarCarro()">Acelerar</button>
+        <button onclick="frearCarro()">Freiar</button>
+      </div>
+
+      <div class="card">
+        <h3>Veículo:</h3>
+        <p><strong>Modelo:</strong> Scania</p>
+        <p>
+          <strong>Velocidade:</strong>
+          <span id="velocidadeCaminhao">0 km/h</span>
+        </p>
+        <p><strong>Marcha:</strong> <span id="marchaCaminhao">1</span></p>
+        <button onclick="acelerarCaminhao()">Acelerar</button>
+        <button onclick="frearCaminhao()">Freiar</button>
+      </div>
+    </div>
+    <br /><br />
+    <div class="header">
+      <h3>Desenvolvido por Guilherme Moreira e Maria Fernanda Costa</h3>
+    </div>
+
+    <script>
+      let velocidadeCarro = 0;
+      let marchaCarro = 1;
+      let velocidadeCaminhao = 0;
+      let marchaCaminhao = 1;
+
+      function atualizarDisplayCarro() {
+        document.getElementById(
+          'velocidadeCarro',
+        ).textContent = `${velocidadeCarro} km/h`;
+        document.getElementById('marchaCarro').textContent = marchaCarro;
+      }
+
+      function atualizarDisplayCaminhao() {
+        document.getElementById(
+          'velocidadeCaminhao',
+        ).textContent = `${velocidadeCaminhao} km/h`;
+        document.getElementById('marchaCaminhao').textContent = marchaCaminhao;
+      }
+
+      function acelerarCarro() {
+        velocidadeCarro += 4;
+        if (velocidadeCarro > 120) marchaCarro = 6;
+        else if (velocidadeCarro > 110) marchaCarro = 5;
+        else if (velocidadeCarro > 90) marchaCarro = 4;
+        else if (velocidadeCarro > 60) marchaCarro = 3;
+        else if (velocidadeCarro > 20) marchaCarro = 2;
+        atualizarDisplayCarro();
+      }
+
+      function frearCarro() {
+        velocidadeCarro = Math.max(0, velocidadeCarro - 3);
+        if (velocidadeCarro < 10) marchaCarro = 1;
+        else if (velocidadeCarro < 20) marchaCarro = 2;
+        else if (velocidadeCarro < 40) marchaCarro = 3;
+        else if (velocidadeCarro < 70) marchaCarro = 4;
+        else if (velocidadeCarro < 90) marchaCarro = 5;
+        atualizarDisplayCarro();
+      }
+
+      function acelerarCaminhao() {
+        velocidadeCaminhao += 2;
+        if (velocidadeCaminhao > 70) marchaCaminhao = 5;
+        else if (velocidadeCaminhao > 50) marchaCaminhao = 4;
+        else if (velocidadeCaminhao > 40) marchaCaminhao = 3;
+        else if (velocidadeCaminhao > 15) marchaCaminhao = 2;
+        atualizarDisplayCaminhao();
+      }
+
+      function frearCaminhao() {
+        velocidadeCaminhao = Math.max(0, velocidadeCaminhao - 2);
+        if (velocidadeCaminhao < 10) marchaCaminhao = 1;
+        else if (velocidadeCaminhao < 35) marchaCaminhao = 2;
+        else if (velocidadeCaminhao < 45) marchaCaminhao = 3;
+        else if (velocidadeCaminhao < 60) marchaCaminhao = 4;
+        atualizarDisplayCaminhao();
+      }
+    </script>
+  </body>
+</html>
