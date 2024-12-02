@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Formulário de Cliente</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <h1>Formulário de Cliente</h1>
+    <form action="/clientes" method="post">
+      <label for="nome">Nome:</label>
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        placeholder="Nome do cliente"
+        required
+      /><br />
+
+      <label for="cpf">CPF:</label>
+      <input
+        type="text"
+        id="cpf"
+        name="cpf"
+        placeholder="CPF do cliente"
+        required
+      /><br />
+
+      <button type="submit">Salvar</button>
+    </form>
+    <a href="/clientes">
+      <button>Voltar para lista de clientes</button>
+    </a>
+  </body>
+</html>
